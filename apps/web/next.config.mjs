@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // Lint đã chạy riêng ở gốc repo (`npm run lint`, flat config typescript-eslint) —
+  // không cần Next tự lint lại lúc build (tránh phải cài thêm eslint-config-next).
+  eslint: { ignoreDuringBuilds: true },
   // Rule engine + coach tất định dùng chung với server, chạy được ở client (offline).
   transpilePackages: ['@tiny/domain', '@tiny/ai-gateway', '@tiny/analytics'],
   env: {
