@@ -52,13 +52,11 @@ vì vậy dùng Neon làm CSDL dù host API ở đâu.
 4. Deploy xong, Render cấp domain dạng `https://tiny-api.onrender.com`. Kiểm tra:
    `curl https://tiny-api.onrender.com/health` → `{"status":"ok","db":true,"ts":"..."}`
    (lần gọi đầu có thể mất ~30–50s nếu service vừa "ngủ dậy").
-5. Seed nội dung mẫu — chạy MỘT LẦN (idempotent, chạy lại vô hại). Render free không có
-   shell/CLI chạy lệnh một lần tiện như Railway; cách đơn giản nhất là tạm sửa Start Command
-   thành `npm run db:seed --workspace apps/api && npm run start --workspace apps/api`,
-   deploy một lần, xem log thấy `Seed hoàn tất: 3 pack.`, rồi đổi Start Command về lại
-   `npm run start --workspace apps/api` và deploy lại.
-   (`seedTargetOverlays`/`seedSkills` tự chạy mỗi lần khởi động; riêng ContentPack trong
-   `content/` chỉ tự nạp khi `NODE_ENV != production`, nên production cần bước trên.)
+5. Nội dung mẫu (`content/*.json`) tự nạp lại **mỗi lần server khởi động**, kể cả production
+   — không cần thao tác gì thêm. Sửa file trong `content/`, push lên `main`, Render tự
+   redeploy và nội dung mới tự lên (log sẽ có dòng `Seed nội dung: 3 pack, 0 bị từ chối`).
+   Việc này an toàn vì nạp lại theo `id` của từng pack (ghi đè đúng bản trong repo), không
+   đụng tới pack do gia đình tự soạn trong Content Studio.
 
 ## 3. Web miễn phí trên Vercel
 
