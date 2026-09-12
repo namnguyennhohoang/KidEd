@@ -21,7 +21,7 @@
       "schema_version": "1.0.0",
       "content_version": "1.0.0",
       "status": "DRAFT",
-      "title": "Đi tìm bóng",
+      "title": "🔦 Đi tìm bóng",
       "locale": "vi-VN",
       "stage": "BASE_CAMP",
       "grades": [1],
@@ -42,11 +42,11 @@
       "duration_minutes": { "screen": 4, "offline": 16 },
       "materials": ["đèn pin", "một món đồ chơi nhỏ", "giấy", "bút"],
       "choices": [
-        { "id": "TOY", "label": "Con soi bóng một món đồ chơi" },
-        { "id": "HAND", "label": "Con soi bóng bàn tay con" }
+        { "id": "TOY", "label": "🧸 Con soi bóng một món đồ chơi" },
+        { "id": "HAND", "label": "✋ Con soi bóng bàn tay con" }
       ],
       "quest_flow": {
-        "hook": "Khi con để đồ vật trước đèn, phía sau xuất hiện một cái bóng.",
+        "hook": "Khi con để đồ vật trước đèn 🔦, phía sau xuất hiện một cái bóng 🌑.",
         "predict_prompt": "Con đoán xem nếu đưa đèn lại gần thì bóng sẽ to hơn hay nhỏ hơn?",
         "plan_prompt": "Con định thử mấy vị trí đèn, và bắt đầu từ đâu?",
         "attempt_requirement": { "minimum_attempts_before_solution": 1 },

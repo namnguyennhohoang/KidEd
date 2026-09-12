@@ -21,7 +21,7 @@
       "schema_version": "1.0.0",
       "content_version": "1.0.0",
       "status": "DRAFT",
-      "title": "Đi chợ giúp bà",
+      "title": "🛒 Đi chợ giúp bà",
       "locale": "vi-VN",
       "stage": "EXPLORER",
       "grades": [3],
@@ -42,11 +42,11 @@
       "duration_minutes": { "screen": 8, "offline": 12 },
       "materials": ["giấy nháp", "bút"],
       "choices": [
-        { "id": "DRAW_MODEL", "label": "Con vẽ sơ đồ số tiền" },
-        { "id": "STEP_LIST", "label": "Con liệt kê các bước bằng lời" }
+        { "id": "DRAW_MODEL", "label": "🖍️ Con vẽ sơ đồ số tiền" },
+        { "id": "STEP_LIST", "label": "📝 Con liệt kê các bước bằng lời" }
       ],
       "quest_flow": {
-        "hook": "Bà đưa con 50 nghìn, nhờ mua 3 bó rau mỗi bó 8 nghìn và 1 hộp trứng 18 nghìn.",
+        "hook": "Bà đưa con 50 nghìn 💵, nhờ mua 3 bó rau 🥬🥬🥬 mỗi bó 8 nghìn và 1 hộp trứng 🥚 18 nghìn.",
         "predict_prompt": "Con nghĩ mình cần làm mấy bước tính?",
         "plan_prompt": "Con định tính cái gì trước, cái gì sau?",
         "attempt_requirement": { "minimum_attempts_before_solution": 1 },
@@ -80,7 +80,7 @@
       "schema_version": "1.0.0",
       "content_version": "1.0.0",
       "status": "DRAFT",
-      "title": "Chiếc chìa khóa biến mất",
+      "title": "🔑 Chiếc chìa khóa biến mất",
       "locale": "vi-VN",
       "stage": "EXPLORER",
       "grades": [3],
@@ -100,11 +100,11 @@
       "duration_minutes": { "screen": 7, "offline": 10 },
       "materials": ["đoạn văn in sẵn hoặc trên màn hình"],
       "choices": [
-        { "id": "UNDERLINE", "label": "Con gạch chân các manh mối" },
-        { "id": "RETELL", "label": "Con kể lại rồi chỉ ra manh mối" }
+        { "id": "UNDERLINE", "label": "✏️ Con gạch chân các manh mối" },
+        { "id": "RETELL", "label": "💬 Con kể lại rồi chỉ ra manh mối" }
       ],
       "quest_flow": {
-        "hook": "Nam về nhà thấy cửa vẫn khóa, nhưng chậu cây trước hiên bị xê dịch và có dấu chân ướt trên bậc thềm.",
+        "hook": "Nam về nhà thấy cửa vẫn khóa 🔒, nhưng chậu cây 🪴 trước hiên bị xê dịch và có dấu chân ướt 👣 trên bậc thềm.",
         "predict_prompt": "Con đoán chuyện gì đã xảy ra?",
         "plan_prompt": "Con sẽ tìm những manh mối nào trong đoạn văn?",
         "attempt_requirement": { "minimum_attempts_before_solution": 1 },
