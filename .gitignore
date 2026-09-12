@@ -1,0 +1,48 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build
+.next/
+next-env.d.ts
+dist/
+build/
+*.tsbuildinfo
+
+# Playwright
+/apps/web/test-results/
+/apps/web/playwright-report/
+/apps/web/blob-report/
+
+# Env & secrets
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Data / uploads (không bao giờ commit dữ liệu trẻ hoặc DB dev)
+data/
+uploads/
+apps/*/data/
+*.sqlite
+*.db
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Test / coverage
+coverage/
+.playwright/
+test-results/
+playwright-report/
+
+# Logs
+*.log

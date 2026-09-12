@@ -1,0 +1,142 @@
+{
+  "id": "vi-g1-base-camp-starter",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Base Camp lớp 1 — gói khởi động (mẫu kiểm chứng schema)",
+  "description": "Gói mẫu Giai đoạn 0. Chỉ để kiểm thử kiến trúc/schema, KHÔNG phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [
+      {
+        "label": "Concrete–Pictorial–Abstract (Toán tiểu học)",
+        "checked_date": "2026-09-07"
+      }
+    ],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-math-number-bonds-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "Xây hai ngôi nhà cho 10 chú chim",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["MATHEMATICS", "ART_DESIGN", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Tách và gộp số trong phạm vi 10"
+        }
+      ],
+      "skills": [
+        { "skill_id": "MATH_NUMBER_SENSE", "role": "PRIMARY" },
+        { "skill_id": "TASK_INITIATION", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 5, "offline": 15 },
+      "materials": ["giấy", "bút màu", "10 vật nhỏ"],
+      "choices": [
+        { "id": "DRAW", "label": "Con muốn vẽ" },
+        { "id": "OBJECTS", "label": "Con muốn dùng đồ vật" }
+      ],
+      "quest_flow": {
+        "hook": "Có 10 chú chim cần ở trong hai ngôi nhà.",
+        "predict_prompt": "Con nghĩ có những cách chia nào?",
+        "plan_prompt": "Con muốn bắt đầu bằng cách nào?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Làm sao con biết vẫn có đủ 10 chú chim?",
+        "revision_prompt": "Con tìm thêm một cách khác được không?",
+        "reflection_prompt": "Bước nào con tự làm được nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình cần chia 10 chú chim thành hai nhóm." },
+        { "level": 2, "type": "QUESTION", "content": "Con muốn đặt một chú chim vào nhà nào trước?" },
+        { "level": 3, "type": "VISUAL", "content_ref": "approved-visual-ref-10-birds" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "VOICE_EXPLANATION", "PARENT_OBSERVATION"],
+      "rubric_id": "g1-number-sense-explain-v1",
+      "adaptations": {
+        "easier": ["reduce_quantity", "use_objects"],
+        "harder": ["find_all_solutions", "write_equations"],
+        "low_confidence": ["private_voice_response", "choice_first"],
+        "low_stamina": ["split_into_two_sessions"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    },
+    {
+      "id": "vi-g1-brave-step-share-drawing-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "Kể về bức tranh của con",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["COMMUNICATION", "ART_DESIGN", "SOCIAL_EMOTIONAL"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "description": "Nói được 3–4 câu về một sản phẩm mình tạo ra"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ORAL_EXPLANATION", "role": "PRIMARY" },
+        { "skill_id": "SOCIAL_CONFIDENCE", "role": "SECONDARY" },
+        { "skill_id": "VISUAL_STORYTELLING", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 10 },
+      "materials": ["bức tranh con đã vẽ"],
+      "choices": [
+        { "id": "APP_ONLY", "label": "Con kể cho ứng dụng nghe" },
+        { "id": "RECORD", "label": "Con ghi âm rồi tự nghe lại" }
+      ],
+      "quest_flow": {
+        "hook": "Bức tranh của con có một câu chuyện. Mình cùng kể nhé.",
+        "predict_prompt": "Con muốn kể về nhân vật nào trước?",
+        "plan_prompt": "Con định nói mấy câu, và bắt đầu bằng câu gì?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Vì sao con chọn kể phần đó trước?",
+        "revision_prompt": "Con muốn thêm một câu về cảm xúc của nhân vật không?",
+        "reflection_prompt": "Lần này con thấy kể dễ hơn hay khó hơn lần trước?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Con kể xem trong tranh có ai và họ đang làm gì." },
+        { "level": 2, "type": "QUESTION", "content": "Chuyện gì xảy ra trước, chuyện gì xảy ra sau?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn kể theo thứ tự thời gian hay kể nhân vật con thích nhất trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "AUDIO_RECORDING", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-oral-explanation-v1",
+      "adaptations": {
+        "easier": ["describe_one_character_only"],
+        "harder": ["tell_to_two_family_members"],
+        "low_confidence": ["app_only_first", "record_and_listen_back"],
+        "low_stamina": ["two_sentences_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

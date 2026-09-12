@@ -1,0 +1,180 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanhtrinhtulamduoc.local/schemas/learning-unit.schema.json",
+  "title": "LearningUnit",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "schema_version",
+    "content_version",
+    "status",
+    "title",
+    "locale",
+    "stage",
+    "grades",
+    "domains",
+    "skills",
+    "duration_minutes",
+    "choices",
+    "quest_flow",
+    "hints",
+    "evidence",
+    "adaptations",
+    "safety",
+    "provenance"
+  ],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/slugId" },
+    "schema_version": { "$ref": "common.schema.json#/$defs/semver" },
+    "content_version": { "$ref": "common.schema.json#/$defs/semver" },
+    "status": { "$ref": "common.schema.json#/$defs/status" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "locale": { "type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$" },
+    "stage": { "$ref": "common.schema.json#/$defs/stage" },
+    "grades": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+    },
+    "domains": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "common.schema.json#/$defs/domain" }
+    },
+    "learning_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["framework", "description"],
+        "properties": {
+          "framework": { "type": "string", "minLength": 1 },
+          "code": { "type": "string" },
+          "description": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "skills": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["skill_id", "role"],
+        "properties": {
+          "skill_id": { "type": "string", "minLength": 1 },
+          "role": { "$ref": "common.schema.json#/$defs/skillRole" }
+        }
+      }
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "duration_minutes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["screen", "offline"],
+      "properties": {
+        "screen": { "type": "integer", "minimum": 0, "maximum": 60 },
+        "offline": { "type": "integer", "minimum": 0, "maximum": 240 }
+      }
+    },
+    "materials": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "choices": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "label": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "quest_flow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hook", "plan_prompt", "attempt_requirement", "explain_prompt", "reflection_prompt"],
+      "properties": {
+        "hook": { "type": "string", "minLength": 1 },
+        "predict_prompt": { "type": "string" },
+        "plan_prompt": { "type": "string", "minLength": 1 },
+        "attempt_requirement": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["minimum_attempts_before_solution"],
+          "properties": {
+            "minimum_attempts_before_solution": { "type": "integer", "minimum": 1 }
+          }
+        },
+        "explain_prompt": { "type": "string", "minLength": 1 },
+        "revision_prompt": { "type": "string" },
+        "reflection_prompt": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["level", "type"],
+        "properties": {
+          "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+          "type": {
+            "type": "string",
+            "enum": ["REPHRASE", "QUESTION", "VISUAL", "STRATEGY_CHOICE", "WORKED_EXAMPLE"]
+          },
+          "content": { "type": "string" },
+          "content_ref": { "type": "string" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "PHOTO_ARTIFACT",
+          "VOICE_EXPLANATION",
+          "TEXT_RESPONSE",
+          "PARENT_OBSERVATION",
+          "TEACHER_VERIFICATION",
+          "CHILD_REFLECTION",
+          "AUDIO_RECORDING",
+          "DIGITAL_ARTIFACT"
+        ]
+      }
+    },
+    "rubric_id": { "type": "string" },
+    "adaptations": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "easier": { "type": "array", "items": { "type": "string" } },
+        "harder": { "type": "array", "items": { "type": "string" } },
+        "low_confidence": { "type": "array", "items": { "type": "string" } },
+        "low_stamina": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["adult_required", "risk_level"],
+      "properties": {
+        "adult_required": { "type": "boolean" },
+        "risk_level": { "type": "string", "enum": ["LOW", "MED", "HIGH"] }
+      }
+    },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" }
+  }
+}

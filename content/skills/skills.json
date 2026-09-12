@@ -1,0 +1,33 @@
+{
+  "$comment": "Skill Graph tối thiểu (DATA_MODEL §6.2). Thêm/sửa không cần đổi code — seed idempotent theo `code`.",
+  "skills": [
+    { "code": "TASK_INITIATION", "group": "EXECUTIVE_FUNCTION", "titleVi": "Tự bắt đầu nhiệm vụ", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": [] },
+    { "code": "FLEXIBLE_THINKING", "group": "EXECUTIVE_FUNCTION", "titleVi": "Tư duy linh hoạt", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": [] },
+    { "code": "REASONING_PLANNING", "group": "METACOGNITIVE", "titleVi": "Lập kế hoạch và suy luận", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "ORAL_EXPLANATION", "group": "COMMUNICATION", "titleVi": "Giải thích bằng lời", "stageRelevance": ["BASE_CAMP", "EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "SOCIAL_CONFIDENCE", "group": "SOCIAL_EMOTIONAL", "titleVi": "Tự tin xã hội", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": [] },
+    { "code": "VISUAL_STORYTELLING", "group": "ART_DESIGN", "titleVi": "Kể chuyện bằng hình", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": [] },
+    { "code": "MOVEMENT_HABIT", "group": "PHYSICAL", "titleVi": "Thói quen vận động", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": [] },
+
+    { "code": "MATH_NUMBER_SENSE", "group": "ACADEMIC", "titleVi": "Cảm nhận số", "descriptionByAge": { "5-7": "Hiểu số lượng qua vật thật rồi tới hình rồi tới ký hiệu; tách và gộp nhóm nhỏ.", "8-11": "Ước lượng, so sánh và tách số linh hoạt; nhận ra quan hệ phần–toàn." }, "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "MATH_WORD_PROBLEM_MULTISTEP", "group": "ACADEMIC", "titleVi": "Toán lời văn nhiều bước", "prerequisites": ["MATH_NUMBER_SENSE"], "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6", "TDN_SPECIALIZED_GRADE_10"] },
+    { "code": "MATH_LOGIC_PATTERN", "group": "ACADEMIC", "titleVi": "Quy luật và logic toán", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6", "TDN_SPECIALIZED_GRADE_10"] },
+
+    { "code": "VIETNAMESE_READING_FLUENCY", "group": "ACADEMIC", "titleVi": "Đọc trôi chảy tiếng Việt", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": [] },
+    { "code": "READING_INFERENCE", "group": "ACADEMIC", "titleVi": "Đọc suy luận", "prerequisites": ["VIETNAMESE_READING_FLUENCY"], "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "EVIDENCE_CITATION", "group": "COGNITIVE", "titleVi": "Nêu bằng chứng từ văn bản", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "VIETNAMESE_STRUCTURED_WRITING", "group": "ACADEMIC", "titleVi": "Viết đoạn có cấu trúc", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+
+    { "code": "ENGLISH_LISTENING", "group": "ACADEMIC", "titleVi": "Nghe hiểu tiếng Anh", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "ENGLISH_READING", "group": "ACADEMIC", "titleVi": "Đọc hiểu tiếng Anh", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "ENGLISH_WRITING", "group": "ACADEMIC", "titleVi": "Viết tiếng Anh", "stageRelevance": ["TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+
+    { "code": "SCIENCE_OBSERVATION", "group": "ACADEMIC", "titleVi": "Quan sát khoa học", "stageRelevance": ["BASE_CAMP", "EXPLORER"], "overlays": ["TDN_GRADE_6"] },
+    { "code": "INTERDISCIPLINARY_APPLICATION", "group": "COGNITIVE", "titleVi": "Vận dụng liên môn", "stageRelevance": ["EXPLORER", "TDN_READINESS"], "overlays": ["TDN_GRADE_6"] },
+
+    { "code": "SCIENCE_EXPERIMENT_DESIGN", "group": "ACADEMIC", "titleVi": "Thiết kế thí nghiệm và kiểm soát biến", "prerequisites": ["SCIENCE_OBSERVATION"], "stageRelevance": ["SPECIALISATION", "SPEC_HS_READINESS"], "overlays": ["TDN_SPECIALIZED_GRADE_10"] },
+    { "code": "VIETNAMESE_LITERARY_ANALYSIS", "group": "ACADEMIC", "titleVi": "Phân tích văn học có luận điểm", "prerequisites": ["VIETNAMESE_STRUCTURED_WRITING"], "stageRelevance": ["SPECIALISATION", "SPEC_HS_READINESS"], "overlays": ["TDN_SPECIALIZED_GRADE_10"] },
+    { "code": "ENGLISH_ACADEMIC_ESSAY", "group": "ACADEMIC", "titleVi": "Viết luận học thuật tiếng Anh", "prerequisites": ["ENGLISH_WRITING"], "stageRelevance": ["SPECIALISATION", "SPEC_HS_READINESS"], "overlays": ["TDN_SPECIALIZED_GRADE_10"] },
+    { "code": "ARGUMENT_CONSTRUCTION", "group": "COGNITIVE", "titleVi": "Dựng lập luận nhiều bước và phản biện", "prerequisites": ["EVIDENCE_CITATION"], "stageRelevance": ["SPECIALISATION", "SPEC_HS_READINESS"], "overlays": ["TDN_SPECIALIZED_GRADE_10"] }
+  ]
+}

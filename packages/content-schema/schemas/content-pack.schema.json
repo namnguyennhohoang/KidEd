@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanhtrinhtulamduoc.local/schemas/content-pack.schema.json",
+  "title": "ContentPack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "schema_version",
+    "content_version",
+    "status",
+    "title",
+    "locale",
+    "stage",
+    "grades",
+    "provenance",
+    "units"
+  ],
+  "properties": {
+    "id": { "$ref": "common.schema.json#/$defs/slugId" },
+    "kind": { "type": "string", "const": "CONTENT_PACK" },
+    "schema_version": { "$ref": "common.schema.json#/$defs/semver" },
+    "content_version": { "$ref": "common.schema.json#/$defs/semver" },
+    "status": { "$ref": "common.schema.json#/$defs/status" },
+    "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "description": { "type": "string" },
+    "locale": { "type": "string", "pattern": "^[a-z]{2}-[A-Z]{2}$" },
+    "stage": { "$ref": "common.schema.json#/$defs/stage" },
+    "grades": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "integer", "minimum": 1, "maximum": 12 }
+    },
+    "target_overlays": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["TDN_GRADE_6", "TDN_SPECIALIZED_GRADE_10", "GLOBAL_TOP_UNIVERSITY"]
+      }
+    },
+    "provenance": { "$ref": "common.schema.json#/$defs/provenance" },
+    "superseded_by": { "type": "string" },
+    "units": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "learning-unit.schema.json" }
+    }
+  }
+}

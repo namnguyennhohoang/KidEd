@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanhtrinhtulamduoc.local/schemas/event.schema.json",
+  "title": "SessionEvent envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "session_id", "occurred_at", "client_generated_id", "source"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": [
+        "SESSION_STARTED",
+        "CHOICE_PRESENTED",
+        "CHOICE_SELECTED",
+        "FIRST_ACTION",
+        "ATTEMPT_SUBMITTED",
+        "HINT_REQUESTED",
+        "HINT_SHOWN",
+        "STRATEGY_CHANGED",
+        "ARTIFACT_CREATED",
+        "EXPLANATION_RECORDED",
+        "REVISION_CREATED",
+        "REFLECTION_COMPLETED",
+        "SESSION_PAUSED",
+        "SESSION_COMPLETED",
+        "PARENT_OBSERVATION_ADDED",
+        "TEACHER_EVIDENCE_VERIFIED"
+      ]
+    },
+    "session_id": { "type": "string", "minLength": 1 },
+    "occurred_at": { "type": "string", "format": "date-time" },
+    "client_generated_id": { "type": "string", "minLength": 1 },
+    "source": {
+      "type": "string",
+      "enum": ["CHILD_APP", "SERVER", "PARENT_APP", "TEACHER_APP"]
+    },
+    "payload": {
+      "type": "object",
+      "description": "Tối thiểu, không chứa PII hoặc nội dung học dư thừa"
+    }
+  }
+}

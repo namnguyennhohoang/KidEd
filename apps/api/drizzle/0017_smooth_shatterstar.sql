@@ -1,0 +1,1 @@
+ALTER TABLE "admission_rule" ADD COLUMN "pathway_code" text;

@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanhtrinhtulamduoc.local/schemas/common.schema.json",
+  "title": "Common definitions",
+  "$defs": {
+    "semver": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "slugId": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "BASE_CAMP",
+        "EXPLORER",
+        "TDN_READINESS",
+        "SPECIALISATION",
+        "SPEC_HS_READINESS",
+        "GLOBAL_SCHOLAR"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "IN_REVIEW", "PUBLISHED", "WITHDRAWN", "SUPERSEDED"]
+    },
+    "domain": {
+      "type": "string",
+      "enum": [
+        "VIETNAMESE_LITERACY",
+        "MATHEMATICS",
+        "ENGLISH",
+        "SCIENCE",
+        "SOCIAL_STUDIES",
+        "ART_DESIGN",
+        "MUSIC_PIANO",
+        "PHYSICAL_WELLBEING",
+        "COMMUNICATION",
+        "SOCIAL_EMOTIONAL",
+        "EXECUTIVE_FUNCTION",
+        "DIGITAL_AI_LITERACY"
+      ]
+    },
+    "skillRole": {
+      "type": "string",
+      "enum": ["PRIMARY", "SECONDARY"]
+    },
+    "license": {
+      "type": "string",
+      "enum": [
+        "ORIGINAL_OR_LICENSED",
+        "PUBLIC_DOMAIN",
+        "CC_BY",
+        "CC_BY_SA",
+        "LICENSED_THIRD_PARTY"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["author", "license"],
+      "properties": {
+        "author": { "type": "string", "minLength": 1 },
+        "reviewer": { "type": "string" },
+        "source_refs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["label"],
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "url": { "type": "string", "format": "uri" },
+              "checked_date": { "type": "string", "format": "date" },
+              "version": { "type": "string" }
+            }
+          }
+        },
+        "license": { "$ref": "#/$defs/license" }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "skill_id": "VISUAL_SCAFFOLD",
+  "version": "1.0.0",
+  "purpose": "Chuyển biểu đạt sang hình ảnh mà không hạ mục tiêu cốt lõi",
+  "allowed_stages": ["BASE_CAMP", "EXPLORER", "TDN_READINESS"],
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "goal_summary": { "type": "string" },
+      "child_stuck_point": { "type": "string" }
+    },
+    "required": ["goal_summary"]
+  },
+  "output_schema": {
+    "type": "object",
+    "properties": {
+      "child_message": { "type": "string" },
+      "visual_ref": { "type": "string" }
+    },
+    "required": ["child_message"]
+  },
+  "preconditions": ["child_has_attempted_or_requested_help"],
+  "forbidden_behaviors": ["reveal_full_solution", "generate_final_artifact_for_child"],
+  "max_uses_per_session": 2,
+  "cooldown_turns": 1,
+  "requires_parent": false,
+  "telemetry_events": ["INTERACTION_SKILL_SELECTED", "INTERACTION_SKILL_COMPLETED"],
+  "fallback_skill_id": "AGE_REPHRASE"
+}

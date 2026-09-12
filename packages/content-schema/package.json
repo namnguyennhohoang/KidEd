@@ -1,0 +1,20 @@
+{
+  "name": "@tiny/content-schema",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "JSON Schema + trình validate cho ContentPack / LearningUnit / InteractionSkill / Event",
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./schemas/*": "./schemas/*"
+  },
+  "scripts": {
+    "validate": "node validate.mjs",
+    "test": "vitest run --dir src"
+  },
+  "dependencies": {
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1"
+  }
+}

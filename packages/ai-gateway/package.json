@@ -1,0 +1,17 @@
+{
+  "name": "@tiny/ai-gateway",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Cổng AI: provider port + DeterministicCoach (fallback không cần LLM). Giai đoạn 1 chỉ dùng deterministic.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tiny/domain": "*"
+  }
+}

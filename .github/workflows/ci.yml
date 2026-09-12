@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    name: lint · typecheck · test · build (PGlite)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run validate:content
+      - run: npm test
+      - run: npm run build:web
+      - name: Migration + seed + retention từ DB rỗng (PGlite)
+        run: |
+          npm run db:migrate
+          npm run db:seed
+          npm run db:seed   # idempotent
+          npm run job:retention   # chạy được, không xóa nhầm gì
+
+  postgres:
+    name: migration + smoke trên Postgres thật (bù rủi ro PGlite — ADR 0007)
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: tiny
+          POSTGRES_PASSWORD: tiny
+          POSTGRES_DB: tiny
+        ports: ['5432:5432']
+        options: >-
+          --health-cmd "pg_isready -U tiny"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgres://tiny:tiny@localhost:5432/tiny
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Migration từ DB rỗng (Postgres)
+        run: npm run db:migrate
+      - name: Seed (Postgres)
+        run: npm run db:seed
+      - name: Smoke test trọn phiên trên Postgres
+        run: npx vitest run apps/api/src/db/postgres-smoke.test.ts

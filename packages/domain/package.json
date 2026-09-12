@@ -1,0 +1,14 @@
+{
+  "name": "@tiny/domain",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Logic nghiệp vụ độc lập lớp: entity, value object, rule engine. Không phụ thuộc ORM/HTTP.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

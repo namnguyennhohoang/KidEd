@@ -1,0 +1,14 @@
+{
+  "name": "@tiny/analytics",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Event schema + chỉ số học tập. North-star: độc lập, chất lượng minh chứng, chuyển giao đời thực, sức khỏe học tập.",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "id": "vi-g3-explorer-starter",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "PUBLISHED",
+  "title": "Explorer lớp 3 — gói khởi động (mẫu kiểm chứng schema)",
+  "description": "Gói mẫu stage EXPLORER. Chỉ để kiểm thử kiến trúc lớp 3, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Toán lời văn nhiều bước (tiểu học)", "checked_date": "2026-09-08" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-math-multistep-market-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "Đi chợ giúp bà",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["MATHEMATICS", "VIETNAMESE_LITERACY", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Giải bài toán có lời văn qua hai bước tính"
+        }
+      ],
+      "skills": [
+        { "skill_id": "MATH_WORD_PROBLEM_MULTISTEP", "role": "PRIMARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": ["MATH_NUMBER_SENSE"],
+      "duration_minutes": { "screen": 8, "offline": 12 },
+      "materials": ["giấy nháp", "bút"],
+      "choices": [
+        { "id": "DRAW_MODEL", "label": "Con vẽ sơ đồ số tiền" },
+        { "id": "STEP_LIST", "label": "Con liệt kê các bước bằng lời" }
+      ],
+      "quest_flow": {
+        "hook": "Bà đưa con 50 nghìn, nhờ mua 3 bó rau mỗi bó 8 nghìn và 1 hộp trứng 18 nghìn.",
+        "predict_prompt": "Con nghĩ mình cần làm mấy bước tính?",
+        "plan_prompt": "Con định tính cái gì trước, cái gì sau?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói cho bà nghe vì sao còn thừa (hoặc thiếu) bao nhiêu tiền?",
+        "revision_prompt": "Con thử kiểm tra lại bằng cách cộng ngược xem có khớp không?",
+        "reflection_prompt": "Bước nào trong bài này con thấy khó nhất, vì sao?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình cần biết tổng số tiền phải trả, rồi so với 50 nghìn." },
+        { "level": 2, "type": "QUESTION", "content": "3 bó rau, mỗi bó 8 nghìn thì hết bao nhiêu?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn tính tiền rau trước hay tính tổng luôn một lần?" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "VOICE_EXPLANATION", "TEXT_RESPONSE", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-word-problem-explain-v1",
+      "adaptations": {
+        "easier": ["reduce_to_one_step", "smaller_numbers"],
+        "harder": ["add_a_third_item", "ask_for_change_in_coins"],
+        "low_confidence": ["draw_model_first"],
+        "low_stamina": ["solve_step_one_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    },
+    {
+      "id": "vi-g3-reading-inference-lost-key-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "Chiếc chìa khóa biến mất",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["VIETNAMESE_LITERACY", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "description": "Rút ra suy luận từ chi tiết trong đoạn văn và nêu bằng chứng"
+        }
+      ],
+      "skills": [
+        { "skill_id": "READING_INFERENCE", "role": "PRIMARY" },
+        { "skill_id": "EVIDENCE_CITATION", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": ["VIETNAMESE_READING_FLUENCY"],
+      "duration_minutes": { "screen": 7, "offline": 10 },
+      "materials": ["đoạn văn in sẵn hoặc trên màn hình"],
+      "choices": [
+        { "id": "UNDERLINE", "label": "Con gạch chân các manh mối" },
+        { "id": "RETELL", "label": "Con kể lại rồi chỉ ra manh mối" }
+      ],
+      "quest_flow": {
+        "hook": "Nam về nhà thấy cửa vẫn khóa, nhưng chậu cây trước hiên bị xê dịch và có dấu chân ướt trên bậc thềm.",
+        "predict_prompt": "Con đoán chuyện gì đã xảy ra?",
+        "plan_prompt": "Con sẽ tìm những manh mối nào trong đoạn văn?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Chi tiết nào khiến con nghĩ như vậy? Con đọc lại câu đó cho mình nghe nhé.",
+        "revision_prompt": "Có manh mối nào con bỏ sót không? Con thử tìm thêm một cái nữa.",
+        "reflection_prompt": "Con thấy suy luận từ manh mối có khó hơn đọc hiểu bình thường không?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang tìm dấu hiệu cho biết đã có ai đó ở gần nhà." },
+        { "level": 2, "type": "QUESTION", "content": "Dấu chân ướt gợi cho con điều gì về thời điểm?" },
+        { "level": 3, "type": "VISUAL", "content_ref": "approved-visual-ref-clues-map" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "TEXT_RESPONSE", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-reading-inference-v1",
+      "adaptations": {
+        "easier": ["fewer_clues", "guided_questions"],
+        "harder": ["write_a_short_paragraph_conclusion"],
+        "low_confidence": ["retell_first"],
+        "low_stamina": ["find_two_clues_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "name": "@tiny/api",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "API backend - Fastify + TypeScript + Zod + Drizzle (PGlite dev / Postgres prod)",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:seed": "tsx src/seed.ts",
+    "job:retention": "tsx src/jobs/retention.ts"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.717.0",
+    "@electric-sql/pglite": "^0.2.17",
+    "@fastify/cookie": "^11.0.2",
+    "@fastify/multipart": "^9.0.3",
+    "@fastify/swagger": "^9.4.0",
+    "@tiny/ai-gateway": "*",
+    "@tiny/analytics": "*",
+    "@tiny/content-schema": "*",
+    "@tiny/domain": "*",
+    "drizzle-orm": "^0.38.3",
+    "fastify": "^5.2.0",
+    "pg": "^8.13.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.11.10",
+    "drizzle-kit": "^0.30.1"
+  }
+}

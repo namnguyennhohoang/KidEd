@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hanhtrinhtulamduoc.local/schemas/interaction-skill.schema.json",
+  "title": "InteractionSkill contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "skill_id",
+    "version",
+    "purpose",
+    "allowed_stages",
+    "input_schema",
+    "output_schema",
+    "preconditions",
+    "forbidden_behaviors",
+    "max_uses_per_session",
+    "cooldown_turns",
+    "requires_parent",
+    "telemetry_events",
+    "fallback_skill_id"
+  ],
+  "properties": {
+    "skill_id": {
+      "type": "string",
+      "enum": [
+        "WAIT_AND_INVITE",
+        "LIMITED_CHOICE",
+        "AGE_REPHRASE",
+        "VISUAL_SCAFFOLD",
+        "ASK_FOR_REASONING",
+        "NORMALIZE_ERROR",
+        "STRATEGY_SWITCH",
+        "CREATIVE_DIVERGENCE",
+        "BILINGUAL_BRIDGE",
+        "BRAVE_STEP",
+        "CALM_AND_RESET",
+        "MOVE_OFF_SCREEN",
+        "REFLECT_AND_CLOSE",
+        "PARENT_HANDOFF"
+      ]
+    },
+    "version": { "$ref": "common.schema.json#/$defs/semver" },
+    "purpose": { "type": "string", "minLength": 1 },
+    "allowed_stages": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "common.schema.json#/$defs/stage" }
+    },
+    "input_schema": { "type": "object" },
+    "output_schema": { "type": "object" },
+    "preconditions": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "forbidden_behaviors": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "max_uses_per_session": { "type": "integer", "minimum": 0, "maximum": 20 },
+    "cooldown_turns": { "type": "integer", "minimum": 0, "maximum": 20 },
+    "requires_parent": { "type": "boolean" },
+    "telemetry_events": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "fallback_skill_id": { "type": "string" }
+  }
+}

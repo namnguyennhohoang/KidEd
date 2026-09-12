@@ -1,0 +1,3 @@
+ALTER TABLE "attempt_error" ADD CONSTRAINT "attempt_error_skill_id_skill_code_fk" FOREIGN KEY ("skill_id") REFERENCES "public"."skill"("code") ON DELETE set null ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "learning_unit_skill" ADD CONSTRAINT "learning_unit_skill_skill_id_skill_code_fk" FOREIGN KEY ("skill_id") REFERENCES "public"."skill"("code") ON DELETE restrict ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "skill_evidence" ADD CONSTRAINT "skill_evidence_skill_id_skill_code_fk" FOREIGN KEY ("skill_id") REFERENCES "public"."skill"("code") ON DELETE restrict ON UPDATE no action;
