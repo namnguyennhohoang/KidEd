@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: tiny-api
+    runtime: node
+    plan: free
+    rootDir: .
+    buildCommand: npm ci
+    startCommand: npm run start --workspace apps/api
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NPM_CONFIG_PRODUCTION
+        value: "false" # bắt buộc: tsx là devDependency, API chạy thẳng TypeScript không build
+      - key: STORAGE_DRIVER
+        value: filesystem
+      - key: AI_PROVIDER
+        value: PLUGGABLE
+      - key: DATABASE_URL
+        sync: false # dán connection string Neon thủ công trong dashboard Render
