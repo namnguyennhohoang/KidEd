@@ -94,6 +94,8 @@ export interface LearningUnit {
     explain_prompt?: string;
     reflection_prompt?: string;
     attempt_requirement?: { minimum_attempts_before_solution?: number };
+    /** Đáp án trắc nghiệm cho bước "thử làm" (tuỳ chọn) — bấm chọn thay vì gõ chữ. */
+    attempt_options?: Array<{ id: string; label: string }>;
     [k: string]: unknown;
   };
 }

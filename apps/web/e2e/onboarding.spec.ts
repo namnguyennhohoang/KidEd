@@ -1,6 +1,25 @@
 import { test, expect } from '@playwright/test';
 import { onboardParent, onboardAndStart, runLoop, openDashboard } from './helpers';
 
+test('bước "thử làm" — MCQ mặc định; "Cách khác" vẫn mở được ô gõ chữ như cũ', async ({ page }) => {
+  await onboardAndStart(page);
+  await page.locator('[data-testid^="choice-"]').first().click();
+  await page.getByTestId('plan-next').click();
+
+  // Mặc định hiện các đáp án trắc nghiệm, không có ô gõ chữ.
+  const options = page.locator('[data-testid^="attempt-option-"]');
+  await expect(options).toHaveCount(4);
+  await expect(page.getByTestId('attempt-input')).toHaveCount(0);
+
+  // "Cách khác" mở lại đường gõ chữ cũ, vẫn hoạt động như trước khi có MCQ.
+  await page.getByTestId('attempt-other').click();
+  await expect(page.getByTestId('attempt-input')).toBeVisible();
+  await expect(options).toHaveCount(0);
+  await page.getByTestId('attempt-input').fill('Con tự nghĩ ra cách chia 9 và 1');
+  await page.getByTestId('attempt-submit').click();
+  await expect(page.getByText('Số lần con đã thử: 1')).toBeVisible();
+});
+
 test('onboarding → chu trình học đầy đủ → dashboard', async ({ page }) => {
   await onboardAndStart(page);
   await runLoop(page);
@@ -208,8 +227,7 @@ test('luyện có tính giờ: bật đồng hồ → /learn hiện đếm ngư�
 
   await page.getByTestId('plan-input').fill('Con vẽ hai ngôi nhà rồi chia chim');
   await page.getByTestId('plan-next').click();
-  await page.getByTestId('attempt-input').fill('6 với 4');
-  await page.getByTestId('attempt-submit').click();
+  await page.locator('[data-testid^="attempt-option-"]').first().click();
   await page.getByTestId('to-make').click();
   await page.getByTestId('skip-make').click();
   await page.getByTestId('reflect-easy').click();

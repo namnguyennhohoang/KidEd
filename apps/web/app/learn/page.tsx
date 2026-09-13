@@ -52,6 +52,9 @@ export default function LearnPage() {
   const [planText, setPlanText] = useState('');
   const [attemptText, setAttemptText] = useState('');
   const [attemptCount, setAttemptCount] = useState(0);
+  // MCQ (khi unit có quest_flow.attempt_options): bấm chọn thay vì gõ chữ. "Cách khác" mở lại ô gõ.
+  const [showOtherInput, setShowOtherInput] = useState(false);
+  const [lastPickedOptionId, setLastPickedOptionId] = useState<string | null>(null);
   const [coachMsg, setCoachMsg] = useState<string | null>(null);
   const [hintCoolingDown, setHintCoolingDown] = useState(false);
   const [photoQueued, setPhotoQueued] = useState(false);
@@ -170,10 +173,10 @@ export default function LearnPage() {
     promptShownAt.current = Date.now();
   }
 
-  async function submitAttempt() {
+  async function submitAttempt(content: Record<string, unknown>) {
     const s = sessionRef.current;
     if (!s) return;
-    const ord = addAttempt(s, { text: attemptText });
+    const ord = addAttempt(s, content);
     setAttemptCount(ord);
     setAttemptText('');
     setCoachMsg(null);
@@ -252,6 +255,7 @@ export default function LearnPage() {
   if (!unit) return <main className="p-6 text-slate-500">Đang chuẩn bị…</main>;
 
   const minAttempts = unit.questFlow.attempt_requirement?.minimum_attempts_before_solution ?? 1;
+  const attemptOptions = unit.questFlow.attempt_options ?? [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50">
@@ -336,20 +340,52 @@ export default function LearnPage() {
             <Companion>
               <p className="text-xl font-medium">Con thử làm và kể lại cách làm nhé</p>
             </Companion>
-            <textarea
-              data-testid="attempt-input"
-              className="min-h-32 rounded-2xl border-2 border-sky-200 p-4 text-lg placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100 sm:min-h-40"
-              placeholder="📝 Ví dụ: Con đã làm... rồi con thấy... — gõ hoặc nhờ ba/mẹ gõ giúp câu trả lời của con vào đây."
-              value={attemptText}
-              onChange={(e) => setAttemptText(e.target.value)}
-            />
-            <p className="text-base text-slate-500">
-              💡 Không cần viết dài hay đúng chính tả đâu — kể đúng ý con nghĩ là được rồi!
-            </p>
+
+            {attemptOptions.length > 0 && !showOtherInput ? (
+              <div className="flex flex-col gap-3">
+                {attemptOptions.map((o) => (
+                  <Button
+                    key={o.id}
+                    variant={lastPickedOptionId === o.id ? 'success' : 'big'}
+                    data-testid={`attempt-option-${o.id}`}
+                    onClick={() => {
+                      setLastPickedOptionId(o.id);
+                      void submitAttempt({ optionId: o.id, text: o.label });
+                    }}
+                  >
+                    {lastPickedOptionId === o.id ? `✅ ${o.label}` : o.label}
+                  </Button>
+                ))}
+                <Button type="button" variant="ghost" data-testid="attempt-other" onClick={() => setShowOtherInput(true)}>
+                  🔀 Cách khác, để con tự nói
+                </Button>
+              </div>
+            ) : (
+              <>
+                <textarea
+                  data-testid="attempt-input"
+                  className="min-h-32 rounded-2xl border-2 border-sky-200 p-4 text-lg placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100 sm:min-h-40"
+                  placeholder="📝 Ví dụ: Con đã làm... rồi con thấy... — gõ hoặc nhờ ba/mẹ gõ giúp câu trả lời của con vào đây."
+                  value={attemptText}
+                  onChange={(e) => setAttemptText(e.target.value)}
+                />
+                <p className="text-base text-slate-500">
+                  💡 Không cần viết dài hay đúng chính tả đâu — kể đúng ý con nghĩ là được rồi!
+                </p>
+              </>
+            )}
+
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Button variant="success" data-testid="attempt-submit" disabled={!attemptText.trim()} onClick={submitAttempt}>
-                ✅ Con làm xong bước này
-              </Button>
+              {(attemptOptions.length === 0 || showOtherInput) && (
+                <Button
+                  variant="success"
+                  data-testid="attempt-submit"
+                  disabled={!attemptText.trim()}
+                  onClick={() => submitAttempt({ text: attemptText })}
+                >
+                  ✅ Con làm xong bước này
+                </Button>
+              )}
               <Button variant="warm" data-testid="hint-btn" disabled={hintCoolingDown} onClick={askHint}>
                 {hintCoolingDown ? '⏳ Con thử theo gợi ý nhé…' : '💡 Con cần gợi ý'}
               </Button>

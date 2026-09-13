@@ -117,6 +117,21 @@
         },
         "explain_prompt": { "type": "string", "minLength": 1 },
         "revision_prompt": { "type": "string" },
+        "attempt_options": {
+          "description": "Tuỳ chọn: đáp án trắc nghiệm cho bước 'thử làm' — bé bấm chọn thay vì gõ chữ (phù hợp trẻ chưa viết thạo). Web luôn kèm thêm lựa chọn 'Cách khác' để không giới hạn cách trả lời. Bỏ trống -> bước 'thử làm' vẫn dùng ô gõ chữ như trước.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "label"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "label": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
         "reflection_prompt": { "type": "string", "minLength": 1 }
       }
     },

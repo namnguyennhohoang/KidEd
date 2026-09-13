@@ -37,6 +37,10 @@ Trình validate: `packages/content-schema` (JSON Schema 2020-12 + luật ngữ n
 - `domains` ⊆ enum; `skills[].role` ∈ {PRIMARY, SECONDARY}; ≥ 1 PRIMARY.
 - `duration_minutes.screen` và `duration_minutes.offline` đều ≥ 0; **offline > 0**.
 - `quest_flow.attempt_requirement.minimum_attempts_before_solution` ≥ 1.
+- `quest_flow.attempt_options` (tuỳ chọn, 2–6 mục `{id, label}`): khi có, web hiện bước "thử làm" dưới
+  dạng trắc nghiệm (bấm chọn) thay vì ô gõ chữ — phù hợp trẻ chưa viết thạo (BASE_CAMP). Web luôn tự
+  thêm nút "Cách khác" mở lại ô gõ, nên KHÔNG cần liệt kê hết mọi đáp án đúng có thể có (ví dụ bài
+  chia 10 thành hai nhóm không cần liệt kê đủ 1–9, 2–8, ...). Bỏ trống -> vẫn dùng ô gõ chữ như cũ.
 - `hints[]` sắp theo `level` tăng dần; mỗi hint có `type` ∈ {REPHRASE, QUESTION, VISUAL, STRATEGY_CHOICE, WORKED_EXAMPLE}.
 - `evidence[]` ⊆ enum; `provenance.license` ∈ {ORIGINAL_OR_LICENSED, PUBLIC_DOMAIN, CC_BY, CC_BY_SA, LICENSED_THIRD_PARTY}.
 

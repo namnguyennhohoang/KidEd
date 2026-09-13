@@ -498,6 +498,32 @@ Trọng tâm spec: phân biệt lộ trình **Mỹ/Anh/Singapore/Canada/Úc**; *
 
 **Còn ⛔ (ngoài code):** rà soát prompt + adapter + RAG corpus với chuyên gia; thử với API key thật; mở rộng `descriptionByAge` cho toàn bộ Skill Graph; quét mã độc upload; mã hóa at-rest prod; chính sách chặn khi thiếu child_assent; test tích hợp S3 (MinIO); pipeline deploy; pilot với gia đình thật.
 
+## Sau khi lên production (Vercel + Render + Neon) — hoàn thiện UX & nội dung
+
+Không đánh số slice theo Giai đoạn nữa (đã hết phạm vi roadmap gốc) — ghi ngắn gọn theo yêu cầu thực tế
+sau khi có bản chạy thật, xem chi tiết trong lịch sử commit trên GitHub (`namnguyennhohoang/KidEd`):
+- **Deploy**: `render.yaml` + `docs/DEPLOYMENT.md` (Render free + Neon + Vercel); fix `tsx`/`typescript`/
+  `@types/node` phải khai báo trong `apps/web/package.json` (Vercel chỉ cài theo workspace, không hoist
+  từ gốc); server tự nạp lại `content/` mỗi lần khởi động kể cả production (không cần `db:seed` tay nữa).
+- **Giao diện `/learn` theo góc nhìn giáo dục/tâm lý trẻ**: màu có ý nghĩa cố định (xanh lá=xong,
+  vàng=cần giúp, xanh dương=việc phụ/nghỉ), mascot 🦉 lặp lại, placeholder rõ ràng cho ô nhập (kèm nói
+  rõ ô nào bắt buộc/không bắt buộc), đổi 😐→🤔 cho lựa chọn "khó" (growth mindset), input ảnh dạng
+  drop-zone lớn thay vì `<input type=file>` mặc định.
+- **Bố cục rộng hơn cho desktop/laptop** (thiết bị chính của bé): `/learn` + trang chủ/`/onboarding`/
+  `/parent` từ `max-w-md`/`max-w-lg` → `max-w-2xl`, nền gradient phủ toàn màn hình thay vì bị nhốt
+  trong cột hẹp. Cố tình KHÔNG chia nút thành lưới nhiều cột (sẽ làm mỗi nút *nhỏ hơn*).
+
+### Slice 7c — MCQ cho bước "thử làm" (thay ô gõ chữ khi nội dung có sẵn đáp án)  ✅ HOÀN THÀNH
+| ID | Hạng mục | Trạng thái |
+|---|---|---|
+| G7-7c-1 | `learning-unit.schema.json`: `quest_flow.attempt_options?` (2–6 mục `{id, label}`, `additionalProperties:false`). Không cần migration (đã nằm trong `quest_flow` jsonb có sẵn); Studio đã passthrough field lạ trong `quest_flow` từ trước nên không cần sửa `studio.ts` | ✅ |
+| G7-7c-2 | `lib/api.ts` `LearningUnit.questFlow.attempt_options?`. `/learn`: khi unit có `attempt_options` → hiện nút bấm chọn (bấm = nộp attempt ngay, không cần nút "xong" riêng) + luôn kèm nút **"🔀 Cách khác"** mở lại ô gõ chữ cũ — không giới hạn cách trả lời, không cần liệt kê hết đáp án đúng có thể có. Không có `attempt_options` → giữ nguyên ô gõ chữ như trước (tương thích ngược) | ✅ |
+| G7-7c-3 | `submitAttempt` tổng quát hoá nhận `content` bất kỳ (dùng chung cho gõ chữ lẫn chọn MCQ) — không đổi mô hình lưu trữ `attempt.content` (vẫn jsonb tự do) | ✅ |
+| G7-7c-4 | Thêm `attempt_options` mẫu cho unit "10 chú chim" (base-camp). `validate.test.ts` (+1: hợp lệ qua, <2 lựa chọn hoặc thiếu `label` → lỗi schema). `e2e/helpers.ts` `runLoop` cập nhật dùng MCQ; `onboarding.spec.ts` (+1): MCQ hiện mặc định (4 lựa chọn, không có ô gõ) → "Cách khác" mở lại ô gõ + nộp được như cũ | ✅ |
+
+**Kết quả 7c:** `npm test` → **238 pass** + 2 skipped — 28 file. typecheck + `eslint .` sạch. `validate:content` 4/0. `build:web` OK. `npm run e2e` → **10/10**.
+**Còn 🟡:** chỉ 1 unit mẫu có MCQ — cần bổ sung `attempt_options` cho các unit khác khi soạn nội dung thật; chưa có UI Content Studio riêng để soạn MCQ (hiện soạn qua JSON thô).
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.

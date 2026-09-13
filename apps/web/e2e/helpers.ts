@@ -39,8 +39,8 @@ export async function runLoop(page: Page, opts: { photo?: boolean } = {}): Promi
   await page.getByTestId('hint-btn').click();
   await expect(page.getByTestId('coach-message')).toBeVisible();
 
-  await page.getByTestId('attempt-input').fill('6 với 4');
-  await page.getByTestId('attempt-submit').click();
+  // Bài này có đáp án trắc nghiệm (MCQ) — bấm chọn thay vì gõ chữ.
+  await page.locator('[data-testid^="attempt-option-"]').first().click();
   await expect(page.getByText('Số lần con đã thử: 1')).toBeVisible();
   await page.getByTestId('to-make').click();
 

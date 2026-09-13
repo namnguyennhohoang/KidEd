@@ -60,4 +60,26 @@ describe('validateContentDoc', () => {
     const findings = semanticUnitChecks({ skills: [], choices: [], title: 'con phải đậu kỳ thi' });
     expect(findings.some((f: { rule_id: string }) => f.rule_id === 'S8')).toBe(true);
   });
+
+  it('quest_flow.attempt_options: hợp lệ thì qua, thiếu id/label hoặc <2 lựa chọn thì lỗi schema', async () => {
+    const unitWith = (attempt_options: unknown) => {
+      const unit = JSON.parse(JSON.stringify(goodPack.units[0]));
+      unit.quest_flow.attempt_options = attempt_options;
+      return { ...JSON.parse(JSON.stringify(goodPack)), units: [unit] };
+    };
+
+    const ok = await validateContentDoc(
+      unitWith([
+        { id: 'a', label: '5 và 5' },
+        { id: 'b', label: '6 và 4' },
+      ]),
+    );
+    expect(ok.findings.filter((f: { severity: string }) => f.severity === 'ERROR')).toEqual([]);
+
+    const tooFew = await validateContentDoc(unitWith([{ id: 'a', label: '5 và 5' }]));
+    expect(tooFew.ok).toBe(false);
+
+    const missingLabel = await validateContentDoc(unitWith([{ id: 'a' }, { id: 'b', label: 'x' }]));
+    expect(missingLabel.ok).toBe(false);
+  });
 });
