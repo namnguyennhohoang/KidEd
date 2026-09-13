@@ -1,0 +1,138 @@
+{
+  "id": "vi-g3-explorer-logic-writing",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — quy luật số & viết đoạn có cấu trúc",
+  "description": "Gói mẫu stage EXPLORER, tiếp nối gói khởi động. Lấp hai kỹ năng academic chưa có unit: quy luật/logic toán và viết đoạn có cấu trúc. Chỉ để kiểm chứng kiến trúc lớp 3, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Quy luật số & viết đoạn có cấu trúc (tiểu học)", "checked_date": "2026-09-13" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-math-logic-pattern-number-sequence-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🔢 Tìm quy luật dãy số",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["MATHEMATICS", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Nhận ra và diễn giải quy luật trong một dãy số"
+        }
+      ],
+      "skills": [
+        { "skill_id": "MATH_LOGIC_PATTERN", "role": "PRIMARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": ["MATH_NUMBER_SENSE"],
+      "duration_minutes": { "screen": 6, "offline": 10 },
+      "materials": ["giấy nháp", "bút"],
+      "choices": [
+        { "id": "DRAW_TABLE", "label": "📊 Con kẻ bảng số" },
+        { "id": "COUNT_AS_GO", "label": "🔢 Con đếm dần từng bước" }
+      ],
+      "quest_flow": {
+        "hook": "Dãy số 2, 5, 8, 11, ... 🔢 đang thiếu vài số ở cuối. Con tìm xem quy luật là gì nhé.",
+        "predict_prompt": "Con đoán khoảng cách giữa các số trong dãy là bao nhiêu?",
+        "plan_prompt": "Con định kiểm tra quy luật bằng cách nào trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con giải thích vì sao số tiếp theo lại là số đó?",
+        "revision_prompt": "Con thử áp dụng quy luật đó cho hai số tiếp theo nữa xem có đúng không?",
+        "reflection_prompt": "Phần nào của bài này làm con phải suy nghĩ nhiều nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang tìm xem mỗi số cách số trước nó bao nhiêu." },
+        { "level": 2, "type": "QUESTION", "content": "Con thử lấy số thứ hai trừ số thứ nhất xem được bao nhiêu?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn kiểm tra quy luật bằng phép cộng hay vẽ thêm vào bảng?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "TEXT_RESPONSE", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-math-logic-pattern-v1",
+      "adaptations": {
+        "easier": ["shorter_sequence", "smaller_gap"],
+        "harder": ["two_step_pattern", "descending_sequence"],
+        "low_confidence": ["draw_table_first"],
+        "low_stamina": ["find_next_number_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    },
+    {
+      "id": "vi-g3-writing-structured-paragraph-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "📝 Viết đoạn văn có mở – thân – kết",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["VIETNAMESE_LITERACY", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Viết một đoạn văn ngắn có cấu trúc mở đoạn – thân đoạn – kết đoạn"
+        }
+      ],
+      "skills": [
+        { "skill_id": "VIETNAMESE_STRUCTURED_WRITING", "role": "PRIMARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" }
+      ],
+      "prerequisites": ["VIETNAMESE_READING_FLUENCY"],
+      "duration_minutes": { "screen": 8, "offline": 12 },
+      "materials": ["giấy", "bút"],
+      "choices": [
+        { "id": "PET", "label": "🐾 Con viết về một con vật con yêu thích" },
+        { "id": "FRIEND", "label": "🧑‍🤝‍🧑 Con viết về một người bạn" }
+      ],
+      "quest_flow": {
+        "hook": "Một đoạn văn hay thường có ba phần: mở đoạn, thân đoạn, kết đoạn ✍️. Mình cùng thử viết nhé.",
+        "predict_prompt": "Con nghĩ mở đoạn nên bắt đầu bằng câu như thế nào?",
+        "plan_prompt": "Con định viết mấy câu cho mỗi phần?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con đọc lại đoạn văn của con và chỉ ra đâu là mở đoạn, thân đoạn, kết đoạn?",
+        "revision_prompt": "Con thử thêm một câu miêu tả chi tiết hơn vào thân đoạn được không?",
+        "reflection_prompt": "Phần nào của đoạn văn con thấy khó viết nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang chia đoạn văn thành ba phần rõ ràng." },
+        { "level": 2, "type": "QUESTION", "content": "Câu đầu tiên của con giới thiệu về ai hoặc cái gì?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn viết thân đoạn trước rồi quay lại viết mở đoạn, hay viết theo đúng thứ tự?" }
+      ],
+      "evidence": ["TEXT_RESPONSE", "VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-structured-writing-v1",
+      "adaptations": {
+        "easier": ["two_sentences_per_part", "provide_a_sentence_starter"],
+        "harder": ["add_a_fourth_detail_sentence", "write_about_two_subjects_compared"],
+        "low_confidence": ["dictate_then_write"],
+        "low_stamina": ["one_part_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

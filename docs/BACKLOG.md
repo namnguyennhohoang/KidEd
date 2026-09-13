@@ -584,6 +584,32 @@ không giới hạn câu trả lời.
 **Còn 🟡:** mọi kỹ năng BASE_CAMP hiện đã có ≥1 unit PRIMARY; các unit vẫn là nội dung *mẫu* (chưa qua
 review chuyên môn sư phạm/tâm lý trẻ thật) và chưa có UI Content Studio để soạn MCQ qua form.
 
+### Slice 7f — Lấp 2 khoảng trống academic ở EXPLORER (lớp 3)  ✅ HOÀN THÀNH
+
+Sau khi BASE_CAMP đã đủ mọi kỹ năng PRIMARY, rà Skill Graph cho stage EXPLORER: 18 kỹ năng liên quan,
+nhưng gói khởi động (`vi-g3-explorer-starter`) mới phủ 2 (`MATH_WORD_PROBLEM_MULTISTEP`,
+`READING_INFERENCE`) — còn tới 13 kỹ năng chưa có unit nào. Vì đây vẫn là *nội dung mẫu kiểm chứng kiến
+trúc* (không phải phủ hết chương trình lớp 3), chỉ lấp 2 kỹ năng academic cốt lõi còn trống hoàn toàn
+(0 unit, kể cả SECONDARY) thay vì làm hết 13:
+
+| Pack | Unit | Kỹ năng PRIMARY |
+|---|---|---|
+| `vi-g3-explorer-logic-writing.pack.json` | 🔢 Tìm quy luật dãy số | `MATH_LOGIC_PATTERN` |
+| `vi-g3-explorer-logic-writing.pack.json` | 📝 Viết đoạn văn có mở – thân – kết | `VIETNAMESE_STRUCTURED_WRITING` |
+
+Giữ nguyên quy tắc đã thống nhất ở Slice 7c: **không** thêm `attempt_options` (MCQ) cho unit EXPLORER —
+trẻ lớp 3 đã viết được, và cả hai bài này (giải thích quy luật, viết đoạn văn) mục tiêu chính là rèn
+diễn đạt/viết mở rộng bằng lời, ép chọn trắc nghiệm sẽ đi ngược mục tiêu học tập.
+
+`loader.test.ts` cập nhật số đếm: `content_pack` 7→8, `learning_unit` 11→13, `learning_unit_skill`
+33→39, `learning_unit_outcome` 11→13.
+
+**Kết quả 7f:** `validate:content` → **9 file, 0 ERROR, 0 WARN**. `npm test` → **238 pass** + 2 skipped
+(chỉ sửa số đếm). typecheck + `eslint .` sạch. `npm run e2e` → **10/10**.
+**Còn 🟡:** EXPLORER vẫn còn 11 kỹ năng chưa có unit (ví dụ tiếng Anh nghe/đọc, khoa học quan sát, vận
+dụng liên môn) — để dành cho lần soạn nội dung thật, không mở rộng thêm ở dạng mẫu kiểm chứng kiến trúc
+nữa trừ khi được yêu cầu cụ thể.
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.
