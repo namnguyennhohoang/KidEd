@@ -531,6 +531,34 @@ giúp bà" + "Chiếc chìa khóa biến mất") — MCQ được thiết kế c
 đang muốn rèn (`explain_prompt` yêu cầu diễn giải nhiều bước / trích dẫn manh mối). Đã chạy lại
 `validate:content` (4 file, 0 lỗi), `npm test` (238 pass, không đổi), `npm run e2e` (10/10, không đổi).
 
+### Slice 7d — Thêm 2 unit BASE_CAMP mới (lấp khoảng trống kỹ năng)  ✅ HOÀN THÀNH
+
+Rà lại Skill Graph (`content/skills/skills.json`) thấy 2 kỹ năng liên quan lớp 1 chưa có unit nào làm
+PRIMARY: `VIETNAMESE_READING_FLUENCY` (đọc trôi chảy — kỹ năng học thuật cốt lõi lớp 1, trước đây
+**chưa có unit nào cả**) và `MOVEMENT_HABIT` (vận động — trước đây không unit nào thuộc domain
+`PHYSICAL_WELLBEING`). Thêm 2 pack mới, theo đúng khuôn mẫu đã có (không sửa code/schema/migration):
+
+| Pack | Unit | Domain chính | MCQ (`attempt_options`) |
+|---|---|---|---|
+| `vi-g1-reading-animal-words.pack.json` | 📖 Đọc đúng tên con vật | VIETNAMESE_LITERACY | 3 thẻ chữ khớp tranh (mèo/chó/gà) — đáp án rời rạc nên hợp MCQ |
+| `vi-g1-movement-break.pack.json` | 🤸 5 phút vận động vui | PHYSICAL_WELLBEING | 3 cách mô tả kiểu vận động (nhanh/chậm/đổi qua lại) — giống mẫu "Đi tìm bóng" (mô tả cách làm, không phải một đáp án đúng duy nhất) |
+
+Cả hai cùng có `predict_prompt`, `plan_prompt`, `explain_prompt`, `revision_prompt`,
+`reflection_prompt`, 3 mức hint tăng dần (không lộ đáp án ở hint mức thấp — S6), `evidence`,
+`adaptations` (easier/harder/low_confidence/low_stamina) như các unit mẫu trước.
+
+Do `loader.test.ts` đếm cứng số dòng trong DB sau khi nạp toàn bộ `content/`, phải cập nhật số kỳ vọng:
+`content_pack` 3→5, `learning_unit` 5→7, `learning_unit_skill` 15→21, `learning_unit_outcome` 5→7 (mỗi
+unit mới có đúng 3 skill + 1 outcome). Các assertion khác dùng `toBeGreaterThanOrEqual` nên không cần sửa.
+
+**Kết quả 7d:** `validate:content` → **6 file, 0 ERROR, 0 WARN**. `npm test` → **238 pass** + 2 skipped
+(không đổi tổng số vì chỉ sửa số đếm, không thêm test case mới). typecheck + `eslint .` sạch.
+`npm run e2e` → **10/10** (không đổi — `/learn` vẫn lấy `packs[0]` theo stage, cả 4 unit BASE_CAMP hiện
+đều tương thích với `runLoop`).
+**Còn 🟡:** vẫn chưa có UI Content Studio để soạn MCQ qua form (chỉ JSON thô); các kỹ năng BASE_CAMP còn
+lại chưa có unit riêng làm PRIMARY: `TASK_INITIATION`, `FLEXIBLE_THINKING`, `SOCIAL_CONFIDENCE`,
+`VISUAL_STORYTELLING` (hiện chỉ xuất hiện làm SECONDARY ở các unit khác).
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.
