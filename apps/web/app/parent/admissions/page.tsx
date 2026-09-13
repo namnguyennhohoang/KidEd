@@ -151,8 +151,9 @@ export default function AdmissionsPage() {
           <label className="mt-2 text-sm text-slate-600">
             Mã PIN (để xác minh)
             <input
-              className="mt-1 w-full rounded border border-slate-300 px-2 py-1"
+              className="mt-1 w-full rounded border border-slate-300 px-2 py-1 focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-100"
               inputMode="numeric"
+              placeholder="Nhập mã PIN đã đặt lúc tạo tài khoản"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
               data-testid="adm-pin"

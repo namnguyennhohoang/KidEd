@@ -210,8 +210,9 @@ export default function StudioPage() {
           <label className="mt-2 text-sm text-slate-600">
             Mã PIN (để duyệt/thu hồi)
             <input
-              className="mt-1 w-full rounded border border-slate-300 px-2 py-1"
+              className="mt-1 w-full rounded border border-slate-300 px-2 py-1 focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-100"
               inputMode="numeric"
+              placeholder="Nhập mã PIN đã đặt lúc tạo tài khoản"
               value={pin}
               onChange={(e) => setPin(e.target.value)}
               data-testid="studio-pin"
@@ -221,9 +222,13 @@ export default function StudioPage() {
 
         <Card className="flex flex-col gap-2">
           <h2 className="font-semibold">Tạo gói mới (JSON)</h2>
+          <p className="text-sm text-slate-500">
+            Bên dưới đã có sẵn một mẫu chỉnh sửa được — cứ sửa trực tiếp các giá trị (tiêu đề, câu hỏi,
+            gợi ý...) theo nhiệm vụ bạn muốn tạo, không cần gõ lại từ đầu.
+          </p>
           <textarea
             data-testid="pack-json"
-            className="min-h-64 rounded-lg border border-slate-300 p-2 font-mono text-xs"
+            className="min-h-64 rounded-lg border border-slate-300 p-2 font-mono text-xs focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-100"
             value={draft}
             onChange={(e) => setDraft(e.target.value)}
           />
