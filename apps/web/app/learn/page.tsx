@@ -30,11 +30,11 @@ const REFLECT_OPTIONS = [
 /** "Bạn đồng hành" lặp lại xuyên suốt — tạo cảm giác quen thuộc, không phải giao diện lạnh lùng. */
 function Companion({ children }: { children: ReactNode }) {
   return (
-    <div className="flex items-start gap-2 rounded-2xl bg-violet-50 p-3 text-violet-900">
-      <span className="text-2xl leading-none" aria-hidden="true">
+    <div className="flex items-start gap-3 rounded-2xl bg-violet-50 p-4 text-lg text-violet-900 sm:p-5">
+      <span className="text-4xl leading-none" aria-hidden="true">
         🦉
       </span>
-      <div className="pt-0.5">{children}</div>
+      <div className="pt-1">{children}</div>
     </div>
   );
 }
@@ -254,195 +254,201 @@ export default function LearnPage() {
   const minAttempts = unit.questFlow.attempt_requirement?.minimum_attempts_before_solution ?? 1;
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-md flex-col justify-center gap-6 bg-gradient-to-b from-sky-50 via-white to-amber-50 p-6">
-      {!online && (
-        <p data-testid="offline-banner" className="rounded-2xl bg-amber-100 px-3 py-2 text-center text-sm text-amber-900">
-          📴 Đang ngoại tuyến — con vẫn học được, mình sẽ lưu lại và đồng bộ sau.
-        </p>
-      )}
-
-      <div className="text-center">
-        <span className="inline-block rounded-full bg-violet-100 px-3 py-1 text-sm font-semibold text-violet-700">
-          ✨ Nhiệm vụ hôm nay
-        </span>
-        <h1 className="mt-2 text-2xl font-bold text-slate-900">{unit.title}</h1>
-        {timeLeft !== null && phase !== 'done' && (
-          <p
-            data-testid="countdown"
-            className={`mt-2 inline-flex items-center gap-1 rounded-full px-3 py-1 text-sm font-semibold ${
-              timeLeft === 0 ? 'bg-amber-100 text-amber-800' : 'bg-sky-100 text-sky-800'
-            }`}
-          >
-            ⏰ {String(Math.floor(timeLeft / 60)).padStart(2, '0')}:{String(timeLeft % 60).padStart(2, '0')}
+    <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50">
+      <main className="mx-auto flex min-h-screen max-w-2xl flex-col justify-center gap-8 p-6 sm:p-10">
+        {!online && (
+          <p data-testid="offline-banner" className="rounded-2xl bg-amber-100 px-4 py-3 text-center text-base text-amber-900">
+            📴 Đang ngoại tuyến — con vẫn học được, mình sẽ lưu lại và đồng bộ sau.
           </p>
         )}
-      </div>
 
-      {timeLeft === 0 && phase !== 'done' && (
-        <p data-testid="time-up-nudge" className="rounded-2xl bg-amber-50 px-3 py-2 text-center text-sm text-amber-900">
-          ⏳ Hết giờ dự tính rồi — con cứ làm nốt cho xong, không sao cả. Mình ghi lại là lần này cần thêm thời gian thôi.
-        </p>
-      )}
-
-      {phase === 'choose' && (
-        <section className="flex flex-col gap-4">
-          {unit.questFlow.hook && <Companion>{unit.questFlow.hook}</Companion>}
-          <p className="text-center text-lg font-medium">Con muốn bắt đầu thế nào?</p>
-          {unit.choices.map((c) => (
-            <Button key={c.id} variant="big" data-testid={`choice-${c.id}`} onClick={() => pickChoice(c.id)}>
-              {c.label}
-            </Button>
-          ))}
-        </section>
-      )}
-
-      {phase === 'plan' && (
-        <section className="flex flex-col gap-3">
-          <Companion>
-            <label className="text-lg font-medium" htmlFor="plan">
-              {unit.questFlow.plan_prompt ?? 'Con định làm gì trước?'}
-            </label>
-          </Companion>
-          <textarea
-            id="plan"
-            data-testid="plan-input"
-            className="min-h-24 rounded-2xl border-2 border-sky-200 p-3 text-base placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100"
-            placeholder="✏️ (Không bắt buộc) Con gõ hoặc nhờ ba/mẹ gõ giúp ý định của con vào đây — hoặc cứ kể miệng cũng được!"
-            value={planText}
-            onChange={(e) => setPlanText(e.target.value)}
-          />
-          <Button variant="success" data-testid="plan-next" onClick={submitPlan}>
-            🚀 Bắt đầu làm
-          </Button>
-        </section>
-      )}
-
-      {restNudge && (phase === 'try' || phase === 'plan') && (
-        <div data-testid="rest-nudge" className="flex items-start gap-2 rounded-2xl bg-emerald-50 px-3 py-2 text-emerald-900">
-          <span className="text-xl leading-none" aria-hidden="true">
-            🌿
+        <div className="text-center">
+          <span className="inline-block rounded-full bg-violet-100 px-4 py-1.5 text-base font-semibold text-violet-700">
+            ✨ Nhiệm vụ hôm nay
           </span>
-          <p>
-            {restNudge === 'stop'
-              ? 'Mình học kha khá rồi. Con làm nốt điều đang nghĩ rồi mình đứng dậy vận động nhé.'
-              : 'Sắp hết giờ học màn hình rồi — con làm nốt bước này rồi mình nghỉ nhé.'}
-          </p>
+          <h1 className="mt-3 text-3xl font-bold text-slate-900 sm:text-4xl">{unit.title}</h1>
+          {timeLeft !== null && phase !== 'done' && (
+            <p
+              data-testid="countdown"
+              className={`mt-3 inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 text-base font-semibold ${
+                timeLeft === 0 ? 'bg-amber-100 text-amber-800' : 'bg-sky-100 text-sky-800'
+              }`}
+            >
+              ⏰ {String(Math.floor(timeLeft / 60)).padStart(2, '0')}:{String(timeLeft % 60).padStart(2, '0')}
+            </p>
+          )}
         </div>
-      )}
 
-      {phase === 'try' && (
-        <section className="flex flex-col gap-3">
-          <Companion>
-            <p className="text-lg font-medium">Con thử làm và kể lại cách làm nhé</p>
-          </Companion>
-          <textarea
-            data-testid="attempt-input"
-            className="min-h-24 rounded-2xl border-2 border-sky-200 p-3 text-base placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100"
-            placeholder="📝 Ví dụ: Con đã làm... rồi con thấy... — gõ hoặc nhờ ba/mẹ gõ giúp câu trả lời của con vào đây."
-            value={attemptText}
-            onChange={(e) => setAttemptText(e.target.value)}
-          />
-          <p className="text-sm text-slate-500">
-            💡 Không cần viết dài hay đúng chính tả đâu — kể đúng ý con nghĩ là được rồi!
+        {timeLeft === 0 && phase !== 'done' && (
+          <p data-testid="time-up-nudge" className="rounded-2xl bg-amber-50 px-4 py-3 text-center text-base text-amber-900">
+            ⏳ Hết giờ dự tính rồi — con cứ làm nốt cho xong, không sao cả. Mình ghi lại là lần này cần thêm thời gian thôi.
           </p>
-          <div className="flex flex-wrap gap-2">
-            <Button variant="success" data-testid="attempt-submit" disabled={!attemptText.trim()} onClick={submitAttempt}>
-              ✅ Con làm xong bước này
-            </Button>
-            <Button variant="warm" data-testid="hint-btn" disabled={hintCoolingDown} onClick={askHint}>
-              {hintCoolingDown ? '⏳ Con thử theo gợi ý nhé…' : '💡 Con cần gợi ý'}
-            </Button>
-          </div>
-          {coachMsg && <Companion><p data-testid="coach-message">{coachMsg}</p></Companion>}
-          <p className="text-sm text-slate-500">🔢 Số lần con đã thử: {attemptCount}</p>
-          <Button
-            variant="calm"
-            data-testid="to-make"
-            disabled={attemptCount < minAttempts}
-            onClick={() => {
-              setPhase('make');
-              promptShownAt.current = Date.now();
-            }}
-          >
-            {attemptCount < minAttempts ? `🔁 Thử ít nhất ${minAttempts} lần` : '👉 Con làm xong rồi'}
-          </Button>
-        </section>
-      )}
+        )}
 
-      {phase === 'make' && (
-        <section className="flex flex-col gap-3">
-          <Companion>
-            <p className="text-lg font-medium">Con chụp ảnh bài làm (nếu muốn)</p>
-          </Companion>
-          <label
-            htmlFor="photo-input"
-            className="flex cursor-pointer flex-col items-center justify-center gap-2 rounded-2xl border-2 border-dashed border-sky-300 bg-sky-50 px-4 py-8 text-center text-sky-800 transition hover:bg-sky-100"
-          >
-            <span className="text-4xl" aria-hidden="true">
-              📷
+        {phase === 'choose' && (
+          <section className="flex flex-col gap-5">
+            {unit.questFlow.hook && <Companion>{unit.questFlow.hook}</Companion>}
+            <p className="text-center text-xl font-medium">Con muốn bắt đầu thế nào?</p>
+            {unit.choices.map((c) => (
+              <Button key={c.id} variant="big" data-testid={`choice-${c.id}`} onClick={() => pickChoice(c.id)}>
+                {c.label}
+              </Button>
+            ))}
+          </section>
+        )}
+
+        {phase === 'plan' && (
+          <section className="flex flex-col gap-4">
+            <Companion>
+              <label className="text-xl font-medium" htmlFor="plan">
+                {unit.questFlow.plan_prompt ?? 'Con định làm gì trước?'}
+              </label>
+            </Companion>
+            <textarea
+              id="plan"
+              data-testid="plan-input"
+              className="min-h-32 rounded-2xl border-2 border-sky-200 p-4 text-lg placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100 sm:min-h-40"
+              placeholder="✏️ (Không bắt buộc) Con gõ hoặc nhờ ba/mẹ gõ giúp ý định của con vào đây — hoặc cứ kể miệng cũng được!"
+              value={planText}
+              onChange={(e) => setPlanText(e.target.value)}
+            />
+            <Button variant="success" data-testid="plan-next" onClick={submitPlan}>
+              🚀 Bắt đầu làm
+            </Button>
+          </section>
+        )}
+
+        {restNudge && (phase === 'try' || phase === 'plan') && (
+          <div data-testid="rest-nudge" className="flex items-start gap-3 rounded-2xl bg-emerald-50 px-4 py-3 text-lg text-emerald-900">
+            <span className="text-2xl leading-none" aria-hidden="true">
+              🌿
             </span>
-            <span className="font-medium">{photoQueued ? 'Chụp lại ảnh khác' : 'Bấm để chụp hoặc chọn ảnh'}</span>
-          </label>
-          <input
-            id="photo-input"
-            data-testid="photo-input"
-            type="file"
-            accept="image/png,image/jpeg"
-            disabled={busy}
-            className="sr-only"
-            onChange={(e) => {
-              const f = e.target.files?.[0];
-              if (f) void capturePhoto(f);
-            }}
-          />
-          <p className="text-xs text-slate-400">
-            {photoQueued
-              ? '✅ Đã lưu ảnh của con (mã hóa trên máy) — sẽ tự gửi khi có mạng.'
-              : online
-                ? 'Ảnh sẽ được lưu; nếu ba/mẹ chưa bật quyền tải ảnh thì để dành gửi sau.'
-                : '📴 Ngoại tuyến — ảnh vẫn được lưu an toàn trên máy và gửi sau.'}
-          </p>
-          <Button
-            variant="calm"
-            data-testid="skip-make"
-            onClick={() => {
-              setPhase('reflect');
-              promptShownAt.current = Date.now();
-            }}
-          >
-            {photoQueued ? '👉 Đi tiếp' : '⏭️ Bỏ qua, đi tiếp'}
-          </Button>
-        </section>
-      )}
+            <p>
+              {restNudge === 'stop'
+                ? 'Mình học kha khá rồi. Con làm nốt điều đang nghĩ rồi mình đứng dậy vận động nhé.'
+                : 'Sắp hết giờ học màn hình rồi — con làm nốt bước này rồi mình nghỉ nhé.'}
+            </p>
+          </div>
+        )}
 
-      {phase === 'reflect' && (
-        <section className="flex flex-col gap-3">
-          <Companion>
-            <p className="text-lg font-medium">{unit.questFlow.reflection_prompt ?? 'Hôm nay con thấy thế nào?'}</p>
-          </Companion>
-          {REFLECT_OPTIONS.map((o) => (
-            <Button key={o.id} variant="big" data-testid={`reflect-${o.id}`} disabled={busy} onClick={() => submitReflection(o.id)}>
-              {o.label}
+        {phase === 'try' && (
+          <section className="flex flex-col gap-4">
+            <Companion>
+              <p className="text-xl font-medium">Con thử làm và kể lại cách làm nhé</p>
+            </Companion>
+            <textarea
+              data-testid="attempt-input"
+              className="min-h-32 rounded-2xl border-2 border-sky-200 p-4 text-lg placeholder:text-slate-400 focus:border-sky-400 focus:outline-none focus:ring-4 focus:ring-sky-100 sm:min-h-40"
+              placeholder="📝 Ví dụ: Con đã làm... rồi con thấy... — gõ hoặc nhờ ba/mẹ gõ giúp câu trả lời của con vào đây."
+              value={attemptText}
+              onChange={(e) => setAttemptText(e.target.value)}
+            />
+            <p className="text-base text-slate-500">
+              💡 Không cần viết dài hay đúng chính tả đâu — kể đúng ý con nghĩ là được rồi!
+            </p>
+            <div className="flex flex-col gap-3 sm:flex-row">
+              <Button variant="success" data-testid="attempt-submit" disabled={!attemptText.trim()} onClick={submitAttempt}>
+                ✅ Con làm xong bước này
+              </Button>
+              <Button variant="warm" data-testid="hint-btn" disabled={hintCoolingDown} onClick={askHint}>
+                {hintCoolingDown ? '⏳ Con thử theo gợi ý nhé…' : '💡 Con cần gợi ý'}
+              </Button>
+            </div>
+            {coachMsg && (
+              <Companion>
+                <p data-testid="coach-message">{coachMsg}</p>
+              </Companion>
+            )}
+            <p className="text-base text-slate-500">🔢 Số lần con đã thử: {attemptCount}</p>
+            <Button
+              variant="calm"
+              data-testid="to-make"
+              disabled={attemptCount < minAttempts}
+              onClick={() => {
+                setPhase('make');
+                promptShownAt.current = Date.now();
+              }}
+            >
+              {attemptCount < minAttempts ? `🔁 Thử ít nhất ${minAttempts} lần` : '👉 Con làm xong rồi'}
             </Button>
-          ))}
-        </section>
-      )}
+          </section>
+        )}
 
-      {phase === 'done' && (
-        <section className="flex flex-col gap-4 text-center">
-          <p className="text-5xl" aria-hidden="true">
-            🎉🌟🎉
-          </p>
-          <p data-testid="done-message" className="text-xl font-semibold text-emerald-700">
-            Hôm nay con tự làm được rồi!
-          </p>
-          <p className="text-slate-600">Mình cùng vận động một chút rồi nghỉ nhé. 🤸</p>
-        </section>
-      )}
+        {phase === 'make' && (
+          <section className="flex flex-col gap-4">
+            <Companion>
+              <p className="text-xl font-medium">Con chụp ảnh bài làm (nếu muốn)</p>
+            </Companion>
+            <label
+              htmlFor="photo-input"
+              className="flex cursor-pointer flex-col items-center justify-center gap-3 rounded-2xl border-2 border-dashed border-sky-300 bg-sky-50 px-4 py-12 text-center text-sky-800 transition hover:bg-sky-100"
+            >
+              <span className="text-6xl" aria-hidden="true">
+                📷
+              </span>
+              <span className="text-lg font-medium">{photoQueued ? 'Chụp lại ảnh khác' : 'Bấm để chụp hoặc chọn ảnh'}</span>
+            </label>
+            <input
+              id="photo-input"
+              data-testid="photo-input"
+              type="file"
+              accept="image/png,image/jpeg"
+              disabled={busy}
+              className="sr-only"
+              onChange={(e) => {
+                const f = e.target.files?.[0];
+                if (f) void capturePhoto(f);
+              }}
+            />
+            <p className="text-sm text-slate-400">
+              {photoQueued
+                ? '✅ Đã lưu ảnh của con (mã hóa trên máy) — sẽ tự gửi khi có mạng.'
+                : online
+                  ? 'Ảnh sẽ được lưu; nếu ba/mẹ chưa bật quyền tải ảnh thì để dành gửi sau.'
+                  : '📴 Ngoại tuyến — ảnh vẫn được lưu an toàn trên máy và gửi sau.'}
+            </p>
+            <Button
+              variant="calm"
+              data-testid="skip-make"
+              onClick={() => {
+                setPhase('reflect');
+                promptShownAt.current = Date.now();
+              }}
+            >
+              {photoQueued ? '👉 Đi tiếp' : '⏭️ Bỏ qua, đi tiếp'}
+            </Button>
+          </section>
+        )}
 
-      <Button type="button" variant="ghost" data-testid="rest-btn" onClick={rest} className="mx-auto mt-2">
-        🌿 Con muốn nghỉ
-      </Button>
-    </main>
+        {phase === 'reflect' && (
+          <section className="flex flex-col gap-4">
+            <Companion>
+              <p className="text-xl font-medium">{unit.questFlow.reflection_prompt ?? 'Hôm nay con thấy thế nào?'}</p>
+            </Companion>
+            {REFLECT_OPTIONS.map((o) => (
+              <Button key={o.id} variant="big" data-testid={`reflect-${o.id}`} disabled={busy} onClick={() => submitReflection(o.id)}>
+                {o.label}
+              </Button>
+            ))}
+          </section>
+        )}
+
+        {phase === 'done' && (
+          <section className="flex flex-col gap-4 text-center">
+            <p className="text-7xl" aria-hidden="true">
+              🎉🌟🎉
+            </p>
+            <p data-testid="done-message" className="text-2xl font-semibold text-emerald-700">
+              Hôm nay con tự làm được rồi!
+            </p>
+            <p className="text-lg text-slate-600">Mình cùng vận động một chút rồi nghỉ nhé. 🤸</p>
+          </section>
+        )}
+
+        <Button type="button" variant="ghost" data-testid="rest-btn" onClick={rest} className="mx-auto mt-2">
+          🌿 Con muốn nghỉ
+        </Button>
+      </main>
+    </div>
   );
 }
