@@ -6,13 +6,21 @@ export function Button({
   className = '',
   variant = 'primary',
   ...props
-}: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'primary' | 'ghost' | 'big' }) {
+}: ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: 'primary' | 'ghost' | 'big' | 'success' | 'warm' | 'calm';
+}) {
   const base =
-    'inline-flex items-center justify-center rounded-xl font-medium transition disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500';
+    'inline-flex items-center justify-center gap-1.5 rounded-2xl font-semibold transition-transform duration-150 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:active:scale-100 focus:outline-none focus:ring-4 focus:ring-offset-2';
   const styles = {
-    primary: 'bg-slate-900 text-white px-4 py-2 hover:bg-slate-700',
-    ghost: 'bg-white text-slate-900 border border-slate-300 px-4 py-2 hover:bg-slate-50',
-    big: 'bg-white text-slate-900 border-2 border-slate-300 px-6 py-8 text-xl hover:border-slate-900 hover:bg-slate-50 w-full',
+    primary: 'bg-slate-900 text-white px-4 py-2 hover:bg-slate-700 focus:ring-slate-300',
+    ghost: 'bg-white text-slate-900 border border-slate-300 px-4 py-2 hover:bg-slate-50 focus:ring-slate-200',
+    // Dùng cho lựa chọn/phản hồi của trẻ (Choose, Reflect) — bo tròn lớn, viền ấm, dễ chạm.
+    big: 'bg-white text-slate-900 border-2 border-sky-200 px-6 py-8 text-xl hover:border-sky-400 hover:bg-sky-50 w-full shadow-sm focus:ring-sky-200',
+    // 3 màu có Ý NGHĨA cố định xuyên suốt màn học của trẻ (nhất quán = dễ đoán, giảm tải nhận thức):
+    // xanh lá = hoàn thành/đi tiếp, vàng = cần trợ giúp, xanh dương = bình tĩnh/nghỉ/việc phụ.
+    success: 'bg-emerald-500 text-white px-5 py-3 text-lg hover:bg-emerald-600 focus:ring-emerald-200 shadow-sm',
+    warm: 'bg-amber-400 text-amber-950 px-5 py-3 text-lg hover:bg-amber-500 focus:ring-amber-200 shadow-sm',
+    calm: 'bg-sky-100 text-sky-900 px-4 py-2 hover:bg-sky-200 focus:ring-sky-200',
   }[variant];
   return <button className={`${base} ${styles} ${className}`} {...props} />;
 }
@@ -25,7 +33,7 @@ export const Field = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputE
         <input
           ref={ref}
           id={id}
-          className={`w-full rounded-lg border border-slate-300 px-3 py-2 focus:border-slate-900 focus:outline-none ${className}`}
+          className={`w-full rounded-xl border border-slate-300 px-3 py-2 focus:border-sky-500 focus:outline-none focus:ring-4 focus:ring-sky-100 ${className}`}
           {...props}
         />
       </label>
