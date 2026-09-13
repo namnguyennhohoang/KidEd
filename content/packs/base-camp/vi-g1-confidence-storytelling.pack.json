@@ -1,0 +1,148 @@
+{
+  "id": "vi-g1-confidence-storytelling",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Bé lớp 1 — tự tin xã hội & kể chuyện bằng hình",
+  "description": "Gói mẫu Giai đoạn 0/1 — hai kỹ năng: tự tin xã hội và kể chuyện bằng hình vẽ. Chỉ để kiểm chứng kiến trúc.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Tự tin xã hội & kể chuyện bằng hình ở trẻ tiểu học", "checked_date": "2026-09-13" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-social-confidence-self-intro-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🙋 Tự giới thiệu về mình",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["SOCIAL_EMOTIONAL", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Tự tin giới thiệu bản thân bằng vài câu ngắn"
+        }
+      ],
+      "skills": [
+        { "skill_id": "SOCIAL_CONFIDENCE", "role": "PRIMARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" },
+        { "skill_id": "TASK_INITIATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 8 },
+      "materials": ["gương hoặc thú bông (tuỳ chọn)"],
+      "choices": [
+        { "id": "MIRROR", "label": "🪞 Con tập trước gương" },
+        { "id": "PLUSH", "label": "🧸 Con tập với thú bông" }
+      ],
+      "quest_flow": {
+        "hook": "Sắp tới lúc con gặp bạn mới rồi 🙋. Mình tập tự giới thiệu một chút cho tự tin nhé.",
+        "predict_prompt": "Con nghĩ mình nên nói mấy câu?",
+        "plan_prompt": "Con định nói câu đầu tiên là gì?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con thấy phần nào dễ nói nhất?",
+        "revision_prompt": "Con thử nói lại, thêm một điều nữa về con được không?",
+        "reflection_prompt": "Nói xong con thấy tự tin hơn lúc trước chưa?",
+        "attempt_options": [
+          { "id": "name_only", "label": "👋 Con nói tên của con" },
+          { "id": "like_only", "label": "🎨 Con nói một điều con thích" },
+          { "id": "both", "label": "👋🎨 Con nói cả tên và điều con thích" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình chỉ cần nói vài câu đơn giản về bản thân thôi." },
+        { "level": 2, "type": "QUESTION", "content": "Con thích nhất điều gì để kể cho bạn mới nghe?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn nói tên trước hay nói điều con thích trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "AUDIO_RECORDING", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-social-confidence-v1",
+      "adaptations": {
+        "easier": ["name_only_first_time", "practice_with_parent_first"],
+        "harder": ["introduce_to_a_family_member_live", "add_a_third_sentence"],
+        "low_confidence": ["mirror_first_then_plush", "private_voice_response"],
+        "low_stamina": ["one_sentence_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    },
+    {
+      "id": "vi-g1-visual-storytelling-three-panel-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🖼️ Vẽ chuyện ba khung tranh",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["ART_DESIGN", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Kể một câu chuyện có mở đầu – diễn biến – kết thúc bằng ba hình vẽ"
+        }
+      ],
+      "skills": [
+        { "skill_id": "VISUAL_STORYTELLING", "role": "PRIMARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" },
+        { "skill_id": "TASK_INITIATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 5, "offline": 15 },
+      "materials": ["giấy chia ba ô hoặc ba tờ giấy nhỏ", "bút màu"],
+      "choices": [
+        { "id": "ANIMAL", "label": "🐶 Chuyện về một con vật" },
+        { "id": "SELF", "label": "👦 Chuyện về chính con" }
+      ],
+      "quest_flow": {
+        "hook": "Một câu chuyện hay có mở đầu, diễn biến và kết thúc 🖼️🖼️🖼️. Mình vẽ ba khung tranh cho câu chuyện của con nhé.",
+        "predict_prompt": "Con nghĩ chuyện của mình sẽ có gì xảy ra ở giữa?",
+        "plan_prompt": "Con định vẽ khung nào trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con kể cho mình nghe chuyện gì xảy ra trong từng khung tranh?",
+        "revision_prompt": "Con muốn thêm chi tiết gì vào một khung tranh không?",
+        "reflection_prompt": "Khung tranh nào con thích nhất, vì sao?",
+        "attempt_options": [
+          { "id": "in_order", "label": "1️⃣ Con vẽ mở đầu trước, rồi diễn biến, rồi kết thúc" },
+          { "id": "ending_first", "label": "🔚 Con vẽ kết thúc trước rồi vẽ ngược lại" },
+          { "id": "any_order", "label": "🔀 Con vẽ theo thứ tự bất kỳ rồi sắp xếp lại" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang kể một câu chuyện nhỏ bằng ba bức tranh." },
+        { "level": 2, "type": "QUESTION", "content": "Chuyện của con bắt đầu ở đâu, với ai?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn vẽ theo đúng thứ tự chuyện xảy ra, hay vẽ khung con thích nhất trước?" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-visual-storytelling-v1",
+      "adaptations": {
+        "easier": ["reduce_to_two_panels", "draw_with_a_template"],
+        "harder": ["add_a_fourth_panel", "add_written_captions"],
+        "low_confidence": ["tell_the_story_aloud_before_drawing"],
+        "low_stamina": ["one_panel_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

@@ -559,6 +559,31 @@ unit mới có đúng 3 skill + 1 outcome). Các assertion khác dùng `toBeGrea
 lại chưa có unit riêng làm PRIMARY: `TASK_INITIATION`, `FLEXIBLE_THINKING`, `SOCIAL_CONFIDENCE`,
 `VISUAL_STORYTELLING` (hiện chỉ xuất hiện làm SECONDARY ở các unit khác).
 
+### Slice 7e — 4 unit BASE_CAMP còn lại (mỗi kỹ năng có 1 unit làm PRIMARY)  ✅ HOÀN THÀNH
+
+Lấp nốt 4 kỹ năng BASE_CAMP còn thiếu unit PRIMARY từ 7d, gộp theo domain vào 2 pack mới:
+
+| Pack | Unit | Kỹ năng PRIMARY | MCQ (`attempt_options`) mô tả gì |
+|---|---|---|---|
+| `vi-g1-executive-function.pack.json` | 🧹 Tự bắt đầu dọn góc học tập | `TASK_INITIATION` | Thứ tự dọn: xong hẳn một góc / xen kẽ / từng món |
+| `vi-g1-executive-function.pack.json` | 🔄 Đổi cách khi tháp bị đổ | `FLEXIBLE_THINKING` | Chiến lược thử lại: đế rộng hơn / thấp hơn / đổi thứ tự xếp |
+| `vi-g1-confidence-storytelling.pack.json` | 🙋 Tự giới thiệu về mình | `SOCIAL_CONFIDENCE` | Nói tên / nói điều thích / nói cả hai |
+| `vi-g1-confidence-storytelling.pack.json` | 🖼️ Vẽ chuyện ba khung tranh | `VISUAL_STORYTELLING` | Thứ tự vẽ: theo chuyện / kết thúc trước / bất kỳ |
+
+Cùng khuôn mẫu 7 phases (hook → predict → plan → try/MCQ → make → reflect), 3 mức hint không lộ đáp án,
+`adaptations` đủ 4 nhóm. Do các kỹ năng này (chức năng điều hành, xã hội-cảm xúc, kể chuyện hình) vốn
+không có "một đáp án đúng duy nhất", MCQ ở đây mô tả **cách/chiến lược trẻ chọn thử** (giống mẫu "Đi tìm
+bóng"/"5 phút vận động"), không phải kiểm tra kiến thức — giữ đúng tinh thần "Cách khác" luôn có sẵn để
+không giới hạn câu trả lời.
+
+`loader.test.ts` cập nhật số đếm: `content_pack` 5→7, `learning_unit` 7→11, `learning_unit_skill`
+21→33, `learning_unit_outcome` 7→11 (mỗi unit mới +3 skill/+1 outcome × 4 unit).
+
+**Kết quả 7e:** `validate:content` → **8 file, 0 ERROR, 0 WARN**. `npm test` → **238 pass** + 2 skipped
+(chỉ sửa số đếm). typecheck + `eslint .` sạch. `npm run e2e` → **10/10**.
+**Còn 🟡:** mọi kỹ năng BASE_CAMP hiện đã có ≥1 unit PRIMARY; các unit vẫn là nội dung *mẫu* (chưa qua
+review chuyên môn sư phạm/tâm lý trẻ thật) và chưa có UI Content Studio để soạn MCQ qua form.
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.
