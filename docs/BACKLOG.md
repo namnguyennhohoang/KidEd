@@ -524,6 +524,13 @@ sau khi có bản chạy thật, xem chi tiết trong lịch sử commit trên G
 **Kết quả 7c:** `npm test` → **238 pass** + 2 skipped — 28 file. typecheck + `eslint .` sạch. `validate:content` 4/0. `build:web` OK. `npm run e2e` → **10/10**.
 **Còn 🟡:** chỉ 1 unit mẫu có MCQ — cần bổ sung `attempt_options` cho các unit khác khi soạn nội dung thật; chưa có UI Content Studio riêng để soạn MCQ (hiện soạn qua JSON thô).
 
+**Cập nhật:** thêm `attempt_options` cho unit BASE_CAMP thứ hai ("🔦 Đi tìm bóng" — 3 lựa chọn mô tả cách
+làm: để đèn gần / để đèn xa / thử cả hai). Cố tình **không** thêm cho 2 unit EXPLORER (lớp 3, "Đi chợ
+giúp bà" + "Chiếc chìa khóa biến mất") — MCQ được thiết kế cho trẻ BASE_CAMP chưa viết thạo; trẻ lớp 3
+đã viết được nên ép chọn trắc nghiệm sẽ làm giảm chất lượng lập luận/giải thích bằng lời mà 2 unit đó
+đang muốn rèn (`explain_prompt` yêu cầu diễn giải nhiều bước / trích dẫn manh mối). Đã chạy lại
+`validate:content` (4 file, 0 lỗi), `npm test` (238 pass, không đổi), `npm run e2e` (10/10, không đổi).
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.
