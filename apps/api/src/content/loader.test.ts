@@ -30,18 +30,18 @@ describe('loadContent — nạp nội dung', () => {
     expect(report.rejected).toEqual([]);
     expect(report.loaded.length).toBeGreaterThanOrEqual(1);
     expect(report.loaded[0]!.action).toBe('inserted');
-    expect(await count('content_pack')).toBe(8);
-    expect(await count('learning_unit')).toBe(13);
-    expect(await count('learning_unit_skill')).toBe(39);
+    expect(await count('content_pack')).toBe(11);
+    expect(await count('learning_unit')).toBe(16);
+    expect(await count('learning_unit_skill')).toBe(48);
   });
 
   it('idempotent: nạp lại không đổi số lượng, action = updated', async () => {
     const report = await loadContent(h.db, CONTENT_ROOT);
     expect(report.loaded.every((r) => r.action === 'updated')).toBe(true);
-    expect(await count('content_pack')).toBe(8);
-    expect(await count('learning_unit')).toBe(13);
-    expect(await count('learning_unit_skill')).toBe(39);
-    expect(await count('learning_unit_outcome')).toBe(13);
+    expect(await count('content_pack')).toBe(11);
+    expect(await count('learning_unit')).toBe(16);
+    expect(await count('learning_unit_skill')).toBe(48);
+    expect(await count('learning_unit_outcome')).toBe(16);
   });
 
   it('từ chối pack có lỗi validation (không ghi vào DB)', async () => {
@@ -94,7 +94,7 @@ describe('loadContent — nạp nội dung', () => {
       const report = await loadContent(h.db, dir);
       expect(report.loaded).toEqual([]);
       expect(report.rejected.length).toBe(1);
-      expect(await count('content_pack')).toBe(8); // vẫn chỉ các pack hợp lệ có sẵn
+      expect(await count('content_pack')).toBe(11); // vẫn chỉ các pack hợp lệ có sẵn
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }
@@ -160,7 +160,7 @@ describe('loadContent — nạp nội dung', () => {
         }),
       );
       await expect(loadContent(h.db, dir)).rejects.toThrow(/DEFINITELY_NOT_A_REAL_SKILL/);
-      expect(await count('content_pack')).toBe(8); // không pack nào bị ghi thêm
+      expect(await count('content_pack')).toBe(11); // không pack nào bị ghi thêm
     } finally {
       rmSync(dir, { recursive: true, force: true });
     }

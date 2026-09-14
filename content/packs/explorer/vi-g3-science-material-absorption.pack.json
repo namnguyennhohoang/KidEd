@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-science-material-absorption",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — quan sát khoa học so sánh vật liệu",
+  "description": "Gói mẫu stage EXPLORER. Lấp kỹ năng SCIENCE_OBSERVATION (chưa có unit nào ở EXPLORER). Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Thí nghiệm so sánh đơn giản cho tiểu học", "checked_date": "2026-09-14" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-science-material-absorption-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "💧 Vật nào thấm nước nhanh hơn?",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["SCIENCE", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Thiết kế phép so sánh đơn giản, quan sát và giải thích kết quả"
+        }
+      ],
+      "skills": [
+        { "skill_id": "SCIENCE_OBSERVATION", "role": "PRIMARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 5, "offline": 20 },
+      "materials": ["giấy ăn", "một miếng vải nhỏ", "cốc nước", "đồng hồ hoặc đồng hồ cát"],
+      "choices": [
+        { "id": "PAPER", "label": "🧻 Con thử giấy ăn" },
+        { "id": "CLOTH", "label": "🧵 Con thử miếng vải" }
+      ],
+      "quest_flow": {
+        "hook": "Có hai vật liệu khác nhau 🧻🧵. Con đoán xem vật nào thấm nước nhanh hơn?",
+        "predict_prompt": "Con đoán vật liệu nào thấm nước nhanh hơn, vì sao?",
+        "plan_prompt": "Con định đo thời gian thấm nước bằng cách nào?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con giải thích vì sao vật liệu đó thấm nhanh hoặc chậm hơn?",
+        "revision_prompt": "Con thử đổi kích thước vật liệu rồi đo lại xem có khác không?",
+        "reflection_prompt": "Kết quả có giống với dự đoán ban đầu của con không?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang so sánh xem vật liệu nào hút nước nhanh hơn." },
+        { "level": 2, "type": "QUESTION", "content": "Con thử nhúng cả hai cùng lúc và đếm xem cái nào ướt hết trước?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn đo bằng cách đếm giây hay so sánh độ ướt bằng mắt?" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "VOICE_EXPLANATION", "TEXT_RESPONSE", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-science-observation-v1",
+      "adaptations": {
+        "easier": ["compare_only_two_materials", "no_timing_just_order"],
+        "harder": ["test_a_third_material", "measure_with_a_stopwatch"],
+        "low_confidence": ["do_with_parent_first"],
+        "low_stamina": ["one_trial_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}
