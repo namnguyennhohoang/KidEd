@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-flexible-thinking-matchsticks",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — đổi chiến lược với que tính",
+  "description": "Gói mẫu stage EXPLORER. Lấp kỹ năng FLEXIBLE_THINKING. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Câu đố que diêm/que tính rèn tư duy linh hoạt", "checked_date": "2026-09-14" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-flexible-thinking-matchstick-puzzle-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🔺 Di chuyển que tính thành hình mới",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["EXECUTIVE_FUNCTION", "MATHEMATICS"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Thử nhiều cách sắp xếp không gian khác nhau khi cách đầu tiên chưa đúng"
+        }
+      ],
+      "skills": [
+        { "skill_id": "FLEXIBLE_THINKING", "role": "PRIMARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 5, "offline": 10 },
+      "materials": ["que tính hoặc tăm (ít nhất 6 que)"],
+      "choices": [
+        { "id": "MATCHES", "label": "🔥 Con dùng que diêm đã tắt" },
+        { "id": "STICKS", "label": "🥢 Con dùng que tính hoặc tăm" }
+      ],
+      "quest_flow": {
+        "hook": "Con xếp que tính thành một hình vuông ◻️. Nhiệm vụ: chỉ di chuyển đúng 2 que để biến thành một hình khác.",
+        "predict_prompt": "Con đoán cần di chuyển những que ở vị trí nào?",
+        "plan_prompt": "Con định thử di chuyển que nào trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con giải thích vì sao cách con làm tạo ra hình mới?",
+        "revision_prompt": "Nếu chưa được, con thử di chuyển que khác xem sao?",
+        "reflection_prompt": "Con đã thử mấy cách trước khi tìm ra cách con thấy ổn nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang tìm cách sắp xếp lại chỉ vài que để có hình khác." },
+        { "level": 2, "type": "QUESTION", "content": "Con thử di chuyển một que ở góc xem hình thay đổi thế nào?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn thử di chuyển que ở cạnh trước hay ở góc trước?" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-flexible-thinking-v1",
+      "adaptations": {
+        "easier": ["move_only_one_stick", "show_the_starting_shape_drawn"],
+        "harder": ["move_only_one_stick_for_a_different_shape", "time_the_attempt"],
+        "low_confidence": ["parent_demonstrates_a_different_puzzle_first"],
+        "low_stamina": ["one_puzzle_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

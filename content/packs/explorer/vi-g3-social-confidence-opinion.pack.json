@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-social-confidence-opinion",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — nêu ý kiến của mình trong nhóm",
+  "description": "Gói mẫu stage EXPLORER. Lấp kỹ năng SOCIAL_CONFIDENCE. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Tự tin xã hội — nêu ý kiến lịch sự khi khác nhóm", "checked_date": "2026-09-14" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-social-confidence-group-opinion-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🗣️ Nêu ý kiến của con trong nhóm",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["SOCIAL_EMOTIONAL", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Tự tin nêu ý kiến khác với số đông một cách lịch sự"
+        }
+      ],
+      "skills": [
+        { "skill_id": "SOCIAL_CONFIDENCE", "role": "PRIMARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" },
+        { "skill_id": "FLEXIBLE_THINKING", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 5, "offline": 8 },
+      "materials": [],
+      "choices": [
+        { "id": "GAME", "label": "🎲 Tình huống chọn trò chơi" },
+        { "id": "FOOD", "label": "🍕 Tình huống chọn món ăn" }
+      ],
+      "quest_flow": {
+        "hook": "Trong nhóm bạn đang chọn trò chơi 🎲, mọi người thích trò khác với con. Con thử nói ra ý kiến của mình xem sao.",
+        "predict_prompt": "Con nghĩ nói ra ý kiến khác với mọi người có khó không?",
+        "plan_prompt": "Con định bắt đầu câu nói của mình thế nào?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói gì để bạn hiểu ý kiến của con mà không làm bạn buồn?",
+        "revision_prompt": "Con thử nói lại một cách nhẹ nhàng hơn được không?",
+        "reflection_prompt": "Nói ra ý kiến của mình, con cảm thấy thế nào?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang tập nói ra điều mình nghĩ một cách lịch sự." },
+        { "level": 2, "type": "QUESTION", "content": "Con có thể bắt đầu bằng câu \"Con nghĩ là...\" được không?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn khen ý của bạn trước rồi mới nêu ý mình, hay nói thẳng ý kiến của con trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "AUDIO_RECORDING", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-social-confidence-v1",
+      "adaptations": {
+        "easier": ["practice_with_parent_playing_the_group_first"],
+        "harder": ["try_with_a_real_group_of_friends", "add_a_follow_up_question_from_the_group"],
+        "low_confidence": ["write_the_sentence_first_then_say_it"],
+        "low_stamina": ["one_situation_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

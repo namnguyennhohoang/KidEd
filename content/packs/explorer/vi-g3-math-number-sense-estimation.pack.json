@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-math-number-sense-estimation",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — ước lượng rồi kiểm tra",
+  "description": "Gói mẫu stage EXPLORER. Lấp kỹ năng MATH_NUMBER_SENSE ở mức EXPLORER (ước lượng/làm tròn). Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Ước lượng và làm tròn số ở tiểu học", "checked_date": "2026-09-14" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-math-number-sense-estimation-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🔢 Ước lượng rồi kiểm tra",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["MATHEMATICS", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Ước lượng kết quả phép tính bằng làm tròn trước khi tính chính xác"
+        }
+      ],
+      "skills": [
+        { "skill_id": "MATH_NUMBER_SENSE", "role": "PRIMARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 6, "offline": 8 },
+      "materials": ["giấy nháp", "bút"],
+      "choices": [
+        { "id": "ROUND_TEN", "label": "🔟 Con làm tròn đến hàng chục" },
+        { "id": "GROUP_ITEMS", "label": "📦 Con nhóm đồ vật lại để đếm nhanh" }
+      ],
+      "quest_flow": {
+        "hook": "Có 4 món đồ giá 19, 21, 32, 28 nghìn 🛒. Trước khi cộng chính xác, mình thử ước lượng tổng trước xem có gần đúng không.",
+        "predict_prompt": "Con đoán tổng khoảng bao nhiêu nếu làm tròn từng số?",
+        "plan_prompt": "Con định làm tròn từng số thế nào trước khi cộng?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con giải thích cách con làm tròn rồi so sánh với kết quả tính chính xác?",
+        "revision_prompt": "Con thử ước lượng lại theo cách khác xem có gần với số thật hơn không?",
+        "reflection_prompt": "Ước lượng của con gần hay xa so với số thật, con nghĩ vì sao?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang đoán một con số gần đúng trước khi tính chính xác." },
+        { "level": 2, "type": "QUESTION", "content": "19 gần với số chục nào hơn: 10 hay 20?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn làm tròn từng số rồi cộng, hay cộng chính xác rồi mới so sánh?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "TEXT_RESPONSE", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-math-number-sense-v1",
+      "adaptations": {
+        "easier": ["reduce_to_two_numbers", "round_to_nearest_ten_only"],
+        "harder": ["add_a_fifth_item", "round_to_nearest_hundred"],
+        "low_confidence": ["use_objects_to_group_first"],
+        "low_stamina": ["estimate_only_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

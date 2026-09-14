@@ -634,6 +634,31 @@ chép lại).
 `VISUAL_STORYTELLING`, `MOVEMENT_HABIT`, `MATH_NUMBER_SENSE`, `VIETNAMESE_READING_FLUENCY`,
 `ENGLISH_LISTENING`, `INTERDISCIPLINARY_APPLICATION`. Vẫn là nội dung mẫu, chưa qua duyệt chuyên môn.
 
+### Slice 7h — 8 unit EXPLORER còn lại (hoàn tất mọi kỹ năng có ≥1 unit PRIMARY)  ✅ HOÀN THÀNH
+
+Người dùng tiếp tục yêu cầu thêm nội dung; lấp nốt toàn bộ 8 kỹ năng EXPLORER còn trống, hoàn tất coverage
+cho EXPLORER giống như đã làm với BASE_CAMP ở Slice 7e. Mỗi kỹ năng một pack riêng:
+
+| Pack | Unit | Kỹ năng PRIMARY | Ghi chú |
+|---|---|---|---|
+| `vi-g3-flexible-thinking-matchsticks.pack.json` | 🔺 Di chuyển que tính thành hình mới | `FLEXIBLE_THINKING` | Câu đố que tính — nhiều chiến lược thử |
+| `vi-g3-social-confidence-opinion.pack.json` | 🗣️ Nêu ý kiến của con trong nhóm | `SOCIAL_CONFIDENCE` | Bản EXPLORER khó hơn tự-giới-thiệu ở BASE_CAMP |
+| `vi-g3-visual-storytelling-comic.pack.json` | 🎬 Truyện tranh bốn khung có lời thoại | `VISUAL_STORYTELLING` | Thêm lời thoại so với bản 3 khung ở BASE_CAMP |
+| `vi-g3-movement-circuit.pack.json` | 🏃 Vòng vận động ba trạm | `MOVEMENT_HABIT` | Nhiều trạm hơn bản 1-hoạt-động ở BASE_CAMP |
+| `vi-g3-math-number-sense-estimation.pack.json` | 🔢 Ước lượng rồi kiểm tra | `MATH_NUMBER_SENSE` | Làm tròn/ước lượng — mức EXPLORER, khác tách-gộp ở BASE_CAMP |
+| `vi-g3-reading-fluency-passage.pack.json` | 📖 Đọc trôi chảy một đoạn văn ngắn | `VIETNAMESE_READING_FLUENCY` | Đọc đoạn văn có tốc độ, khác nhận-mặt-từ ở BASE_CAMP |
+| `vi-g3-english-listening-tpr.pack.json` | 🎧 Nghe tiếng Anh và làm theo | `ENGLISH_LISTENING` | Kiểu Total Physical Response — không cần audio asset |
+| `vi-g3-interdisciplinary-temperature.pack.json` | 🌡️ Đo nhiệt độ trong nhà và ngoài trời | `INTERDISCIPLINARY_APPLICATION` | Kết hợp SECONDARY `SCIENCE_OBSERVATION` + `MATH_NUMBER_SENSE` — đúng tinh thần liên môn |
+
+Toàn bộ vẫn không dùng MCQ (giữ quy tắc EXPLORER = ô gõ chữ). `loader.test.ts` cập nhật số đếm:
+`content_pack` 11→19, `learning_unit` 16→24, `learning_unit_skill` 48→72, `learning_unit_outcome` 16→24.
+
+**Kết quả 7h:** `validate:content` → **20 file, 0 ERROR, 0 WARN**. `npm test` → **238 pass** + 2 skipped
+(chỉ sửa số đếm). typecheck + `eslint .` sạch. `npm run e2e` → **10/10**.
+**Còn 🟡:** mọi kỹ năng BASE_CAMP **và** EXPLORER trong Skill Graph hiện đã có ≥1 unit PRIMARY. Toàn bộ
+20 file nội dung vẫn là *mẫu kiểm chứng kiến trúc* — chưa qua review chuyên môn sư phạm/tâm lý trẻ thật,
+và Content Studio vẫn chưa có UI riêng để soạn MCQ qua form (chỉ JSON thô).
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.

@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-movement-circuit",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — vòng vận động ba trạm",
+  "description": "Gói mẫu stage EXPLORER. Lấp kỹ năng MOVEMENT_HABIT. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Vòng vận động ngắt quãng nhiều trạm cho tiểu học", "checked_date": "2026-09-14" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-movement-three-station-circuit-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🏃 Vòng vận động ba trạm",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["PHYSICAL_WELLBEING", "EXECUTIVE_FUNCTION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Tự lên kế hoạch và hoàn thành một vòng vận động nhiều trạm"
+        }
+      ],
+      "skills": [
+        { "skill_id": "MOVEMENT_HABIT", "role": "PRIMARY" },
+        { "skill_id": "TASK_INITIATION", "role": "SECONDARY" },
+        { "skill_id": "FLEXIBLE_THINKING", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 3, "offline": 12 },
+      "materials": ["không gian trống để vận động"],
+      "choices": [
+        { "id": "JUMP_RUN_STRETCH", "label": "🤸 Nhảy – chạy tại chỗ – giãn cơ" },
+        { "id": "OWN_STATIONS", "label": "✏️ Con tự nghĩ ra ba trạm khác" }
+      ],
+      "quest_flow": {
+        "hook": "Mình làm một vòng vận động có ba trạm 🏃🤸🧘, mỗi trạm 30 giây. Con tự sắp xếp thứ tự trạm nhé.",
+        "predict_prompt": "Con nghĩ trạm nào sẽ làm con mệt nhất?",
+        "plan_prompt": "Con định làm trạm nào trước, trạm nào sau?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Vì sao con chọn thứ tự các trạm như vậy?",
+        "revision_prompt": "Con thử đổi thứ tự hai trạm rồi làm lại xem có dễ hơn không?",
+        "reflection_prompt": "Trạm nào con thấy vui nhất, trạm nào mệt nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang vận động qua ba trạm khác nhau, không cần làm hoàn hảo." },
+        { "level": 2, "type": "QUESTION", "content": "Con muốn bắt đầu bằng trạm nhẹ nhàng hay trạm mạnh trước?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn làm trạm dễ trước để khởi động, hay trạm khó trước khi còn khỏe?" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-movement-habit-v1",
+      "adaptations": {
+        "easier": ["reduce_to_two_stations", "shorten_each_station_to_15_seconds"],
+        "harder": ["add_a_fourth_station", "repeat_the_circuit_twice"],
+        "low_confidence": ["do_the_circuit_with_a_family_member"],
+        "low_stamina": ["one_station_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

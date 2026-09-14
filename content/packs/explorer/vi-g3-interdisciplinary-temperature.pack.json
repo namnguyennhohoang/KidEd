@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-interdisciplinary-temperature",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — đo và tính chênh lệch nhiệt độ",
+  "description": "Gói mẫu stage EXPLORER. Lấp kỹ năng INTERDISCIPLINARY_APPLICATION (kết hợp quan sát khoa học + tính toán). Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Vận dụng liên môn khoa học-toán ở tiểu học (đo nhiệt độ)", "checked_date": "2026-09-14" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-interdisciplinary-temperature-difference-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🌡️ Đo nhiệt độ trong nhà và ngoài trời",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["SCIENCE", "MATHEMATICS", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "VN_GDPT",
+          "code": "CONFIGURABLE_CODE",
+          "description": "Kết hợp đo đạc khoa học và phép tính để trả lời một câu hỏi thực tế"
+        }
+      ],
+      "skills": [
+        { "skill_id": "INTERDISCIPLINARY_APPLICATION", "role": "PRIMARY" },
+        { "skill_id": "SCIENCE_OBSERVATION", "role": "SECONDARY" },
+        { "skill_id": "MATH_NUMBER_SENSE", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 5, "offline": 12 },
+      "materials": ["nhiệt kế (nếu có) hoặc ứng dụng thời tiết trên điện thoại của ba/mẹ", "giấy", "bút"],
+      "choices": [
+        { "id": "THERMOMETER", "label": "🌡️ Con dùng nhiệt kế thật" },
+        { "id": "WEATHER_APP", "label": "📱 Con xem trên ứng dụng thời tiết cùng ba/mẹ" }
+      ],
+      "quest_flow": {
+        "hook": "Nhiệt độ trong nhà và ngoài trời có thể khác nhau 🌡️. Mình đo cả hai nơi rồi tính xem chênh lệch bao nhiêu độ.",
+        "predict_prompt": "Con đoán ngoài trời nóng hơn hay mát hơn trong nhà?",
+        "plan_prompt": "Con định đo ở đâu trước, ghi lại số liệu thế nào?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con tính chênh lệch nhiệt độ bằng phép tính gì?",
+        "revision_prompt": "Con đo lại vào một thời điểm khác trong ngày xem kết quả có đổi không?",
+        "reflection_prompt": "Điều gì bất ngờ nhất với con về kết quả đo được?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang đo hai nơi rồi so sánh bằng một phép tính đơn giản." },
+        { "level": 2, "type": "QUESTION", "content": "Để biết chênh lệch giữa hai số, mình thường dùng phép tính gì?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn đo trong nhà trước hay ngoài trời trước?" }
+      ],
+      "evidence": ["PHOTO_ARTIFACT", "TEXT_RESPONSE", "VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-interdisciplinary-application-v1",
+      "adaptations": {
+        "easier": ["parent_reads_the_thermometer_child_calculates", "round_to_nearest_whole_degree"],
+        "harder": ["measure_three_locations", "measure_twice_a_day_and_compare"],
+        "low_confidence": ["do_the_measurement_with_a_parent_first"],
+        "low_stamina": ["one_measurement_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}
