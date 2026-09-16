@@ -1,0 +1,85 @@
+{
+  "id": "vi-g1-english-body-parts",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Bé lớp 1 — tiếng Anh: Head, Shoulders, Knees & Toes (Cambridge Starters)",
+  "description": "Gói mẫu BASE_CAMP, English track cấp Starters — chủ đề bộ phận cơ thể. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Starters wordlist (Body parts)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-english-body-parts-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🙆 Head, Shoulders, Knees & Toes",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["ENGLISH", "PHYSICAL_WELLBEING"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "STARTERS_VOCAB_BODY",
+          "description": "Chỉ đúng và gọi tên các bộ phận cơ thể cơ bản bằng tiếng Anh"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "PRIMARY" },
+        { "skill_id": "MOVEMENT_HABIT", "role": "SECONDARY" },
+        { "skill_id": "ENGLISH_LISTENING", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 6 },
+      "materials": [],
+      "choices": [
+        { "id": "SONG", "label": "🎵 Con hát và làm động tác" },
+        { "id": "POINT", "label": "👉 Con chỉ và nói tên" }
+      ],
+      "quest_flow": {
+        "hook": "\"Head, shoulders, knees and toes!\" 🙆 Mình vừa chỉ vừa gọi tên các bộ phận cơ thể bằng tiếng Anh.",
+        "predict_prompt": "Con đoán 'đầu gối' trong tiếng Anh là gì?",
+        "plan_prompt": "Con định chỉ bộ phận nào trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con chỉ vào một bộ phận cơ thể và nói tên tiếng Anh cho mình nghe?",
+        "revision_prompt": "Con thử chỉ thêm một bộ phận khác được không?",
+        "reflection_prompt": "Từ bộ phận cơ thể nào bằng tiếng Anh con thấy vui khi nói nhất?",
+        "attempt_options": [
+          { "id": "head", "label": "🗣️ head — con chỉ vào đầu" },
+          { "id": "shoulders", "label": "💪 shoulders — con chỉ vào vai" },
+          { "id": "knees", "label": "🦵 knees — con chỉ vào đầu gối" },
+          { "id": "toes", "label": "🦶 toes — con chỉ vào ngón chân" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang chỉ vào cơ thể và gọi tên bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Bộ phận đó ở gần đầu hay ở gần chân?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn hát bài 'Head, Shoulders, Knees and Toes' hay chỉ và nói từng từ?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "PHOTO_ARTIFACT", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-english-vocabulary-v1",
+      "adaptations": {
+        "easier": ["reduce_to_two_parts", "parent_sings_along"],
+        "harder": ["add_more_body_parts_like_elbows_ears", "increase_speed"],
+        "low_confidence": ["practice_with_parent_first"],
+        "low_stamina": ["two_parts_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

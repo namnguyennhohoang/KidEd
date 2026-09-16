@@ -702,6 +702,41 @@ Flyers (A2) ngoài phạm vi 2 stage hiện có; ảnh minh hoạ từ vựng m�
 chưa có link ảnh thật đã duyệt bản quyền; nội dung do AI soạn dựa theo khung công khai, **bắt buộc**
 qua giáo viên tiếng Anh có chuyên môn YLE duyệt trước khi dùng cho trẻ thật.
 
+### Slice 7j — Lấp nốt các chủ đề tiếng Anh còn thiếu (7i §6)  ✅ HOÀN THÀNH
+
+Người dùng tiếp tục yêu cầu; lấp toàn bộ danh sách 🟡 vừa liệt kê ở 7i — 5 chủ đề Starters + 4 cấu trúc
+Movers, hoàn thiện `docs/CONTENT_ENGLISH_CURRICULUM.md` §5. Không cần đổi Skill Graph (đã đủ 5 skill
+tiếng Anh từ 7i) hay schema — chỉ thêm content.
+
+**5 unit Starters/BASE_CAMP mới (MCQ):**
+
+| Pack | Unit | Skill PRIMARY |
+|---|---|---|
+| `vi-g1-english-family.pack.json` | 👪 My Family | `ENGLISH_VOCABULARY` |
+| `vi-g1-english-body-parts.pack.json` | 🙆 Head, Shoulders, Knees & Toes | `ENGLISH_VOCABULARY` |
+| `vi-g1-english-clothes.pack.json` | 👕 What are you wearing? | `ENGLISH_VOCABULARY` |
+| `vi-g1-english-food.pack.json` | 🍎 Yummy or Yucky? | `ENGLISH_VOCABULARY` |
+| `vi-g1-english-numbers-11-20.pack.json` | 🔢 Numbers 11–20 | `ENGLISH_LISTENING` |
+
+**4 unit Movers/EXPLORER mới (ô gõ/nói, không MCQ):**
+
+| Pack | Unit | Skill PRIMARY |
+|---|---|---|
+| `vi-g3-english-there-is-are.pack.json` | 🏠 There is a cat in the garden | `ENGLISH_SPEAKING` |
+| `vi-g3-english-can-ability.pack.json` | 🏊 I can swim | `ENGLISH_SPEAKING` |
+| `vi-g3-english-jobs.pack.json` | 👨‍⚕️ What does a doctor do? | `ENGLISH_VOCABULARY` |
+| `vi-g3-english-transport.pack.json` | 🚌 How do you get to school? | `ENGLISH_VOCABULARY` |
+
+`loader.test.ts` cập nhật số đếm: `content_pack` 25→34, `learning_unit` 30→39, `learning_unit_skill`
+90→117, `learning_unit_outcome` 30→39.
+
+**Kết quả 7j:** `validate:content` → **35 file, 0 ERROR, 0 WARN**. `npm test` → **238 pass** + 2 skipped.
+typecheck + `eslint .` sạch. `npm run e2e` → **10/10**.
+**Còn 🟡:** Flyers (A2) ngoài phạm vi; vài chủ đề phụ Starters/Movers còn thiếu (xem
+`CONTENT_ENGLISH_CURRICULUM.md` §6 bản cập nhật); ảnh minh hoạ vẫn là `content_ref` placeholder; nội
+dung **bắt buộc** qua giáo viên tiếng Anh chuyên môn YLE duyệt trước khi dùng cho trẻ thật — chưa có gì
+thay đổi về việc này.
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.

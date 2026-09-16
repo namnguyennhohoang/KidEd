@@ -1,0 +1,84 @@
+{
+  "id": "vi-g1-english-numbers-11-20",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Bé lớp 1 — tiếng Anh: Numbers 11–20 (Cambridge Starters)",
+  "description": "Gói mẫu BASE_CAMP, English track cấp Starters — đếm tiếp 11-20. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Starters wordlist (Numbers 1-20)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-english-numbers-11-20-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🔢 Numbers 11–20",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["ENGLISH", "MATHEMATICS"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "STARTERS_VOCAB_NUMBERS_11_20",
+          "description": "Đếm tiếp từ 11 đến 20 bằng tiếng Anh"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_LISTENING", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "SECONDARY" },
+        { "skill_id": "MATH_NUMBER_SENSE", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 6 },
+      "materials": ["đồ vật nhỏ để đếm (que tính, hạt, đồ chơi...)"],
+      "choices": [
+        { "id": "COUNT_OBJECTS", "label": "🧸 Con đếm đồ vật" },
+        { "id": "COUNT_FINGERS", "label": "✋ Con đếm bằng ngón tay và giơ số" }
+      ],
+      "quest_flow": {
+        "hook": "\"Eleven, twelve, thirteen...\" 🔢 Mình học đếm tiếp từ 11 đến 20 bằng tiếng Anh.",
+        "predict_prompt": "Con đoán sau 'nineteen' là số nào?",
+        "plan_prompt": "Con định đếm đồ vật gì trong nhà?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con đếm to từ 11 đến một số con chọn cho mình nghe?",
+        "revision_prompt": "Con thử đếm lại, lần này đếm xa hơn một chút được không?",
+        "reflection_prompt": "Số tiếng Anh nào từ 11-20 con thấy khó đọc nhất?",
+        "attempt_options": [
+          { "id": "to_fifteen", "label": "🔢 Con đếm được đến 'fifteen' (15)" },
+          { "id": "to_twenty", "label": "🔢 Con đếm được đến 'twenty' (20)" },
+          { "id": "skip_count", "label": "🔟 Con đếm cách quãng (11, 13, 15...)" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang đếm tiếp từ 11 bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Con còn nhớ số 10 ('ten') không? Con thử đếm chậm ngay sau đó xem?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn đếm đồ vật thật hay giơ ngón tay đếm?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "PHOTO_ARTIFACT", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-english-listening-v1",
+      "adaptations": {
+        "easier": ["stop_at_fifteen", "count_with_parent_together"],
+        "harder": ["count_backwards_from_twenty", "skip_count_by_twos"],
+        "low_confidence": ["parent_counts_first"],
+        "low_stamina": ["count_to_fifteen_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "id": "vi-g1-english-food",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Bé lớp 1 — tiếng Anh: Yummy or Yucky? (Cambridge Starters)",
+  "description": "Gói mẫu BASE_CAMP, English track cấp Starters — chủ đề đồ ăn, thích/không thích. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Starters wordlist (Food), 'I like/I don't like'", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-english-food-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🍎 Yummy or Yucky?",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["ENGLISH", "SOCIAL_EMOTIONAL"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "STARTERS_VOCAB_FOOD_LIKES",
+          "description": "Nói món ăn mình thích/không thích bằng cấu trúc 'I like / I don't like' bằng tiếng Anh"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_SPEAKING", "role": "SECONDARY" },
+        { "skill_id": "SOCIAL_CONFIDENCE", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 6 },
+      "materials": [],
+      "choices": [
+        { "id": "LIKE", "label": "😋 Con nói món con thích" },
+        { "id": "DISLIKE", "label": "😖 Con nói món con không thích" }
+      ],
+      "quest_flow": {
+        "hook": "\"I like apples. I don't like broccoli.\" 🍎🥦 Mình học nói món ăn mình thích/không thích bằng tiếng Anh.",
+        "predict_prompt": "Con đoán 'chuối' trong tiếng Anh là gì?",
+        "plan_prompt": "Con định nói về món con thích trước hay không thích trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói cả câu 'I like ___' hoặc 'I don't like ___' cho mình nghe?",
+        "revision_prompt": "Con thử nói thêm một món ăn nữa được không?",
+        "reflection_prompt": "Món ăn tiếng Anh nào con thấy khó phát âm nhất?",
+        "attempt_options": [
+          { "id": "fruit", "label": "🍎 apple/banana — con nói về trái cây" },
+          { "id": "vegetable", "label": "🥦 broccoli/carrot — con nói về rau củ" },
+          { "id": "rice", "label": "🍚 rice — con nói về cơm" },
+          { "id": "other", "label": "🍕 món khác con thích" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang nói món ăn mình thích hoặc không thích bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Món đó là trái cây, rau, hay món mặn?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn nói món con thích trước hay món con không thích trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-english-vocabulary-v1",
+      "adaptations": {
+        "easier": ["reduce_to_one_food_item", "parent_says_the_word_first"],
+        "harder": ["compare_two_foods_i_like_x_more_than_y", "list_three_foods"],
+        "low_confidence": ["practice_with_parent_first"],
+        "low_stamina": ["one_food_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

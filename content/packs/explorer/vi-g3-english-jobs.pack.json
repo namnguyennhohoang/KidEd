@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-english-jobs",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — tiếng Anh: Jobs (Cambridge Movers)",
+  "description": "Gói mẫu EXPLORER, English track cấp Movers — chủ đề nghề nghiệp. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Movers wordlist (Jobs)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-english-jobs-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "👨‍⚕️ What does a doctor do?",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["ENGLISH", "SOCIAL_STUDIES"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "MOVERS_VOCAB_JOBS",
+          "description": "Gọi tên nghề nghiệp và mô tả việc họ làm bằng tiếng Anh"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_SPEAKING", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 6, "offline": 8 },
+      "materials": [],
+      "choices": [
+        { "id": "FAMILY_JOB", "label": "👪 Con nói nghề của người thân" },
+        { "id": "DREAM_JOB", "label": "🌟 Con nói nghề con mơ ước" }
+      ],
+      "quest_flow": {
+        "hook": "\"A doctor helps sick people.\" 👨‍⚕️ Mình học tên nghề nghiệp và việc họ làm bằng tiếng Anh.",
+        "predict_prompt": "Con đoán 'giáo viên' trong tiếng Anh là gì?",
+        "plan_prompt": "Con định nói về nghề nào trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói 'A ___ helps/teaches/...' để tả công việc của một nghề?",
+        "revision_prompt": "Con thử nói thêm một nghề khác được không?",
+        "reflection_prompt": "Nghề nào bằng tiếng Anh con thấy thú vị nhất để nói?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang nói tên nghề và việc họ làm bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Người đó thường làm việc ở đâu — bệnh viện, trường học, hay nơi khác?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn nói nghề của người thân trước hay nghề con mơ ước trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "PHOTO_ARTIFACT", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-english-vocabulary-v1",
+      "adaptations": {
+        "easier": ["provide_the_job_word_first", "describe_only_one_job"],
+        "harder": ["describe_three_jobs", "guess_the_job_from_a_description_game"],
+        "low_confidence": ["practice_with_parent_first"],
+        "low_stamina": ["one_job_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

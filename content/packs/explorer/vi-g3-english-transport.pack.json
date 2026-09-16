@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-english-transport",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — tiếng Anh: Transport (Cambridge Movers)",
+  "description": "Gói mẫu EXPLORER, English track cấp Movers — chủ đề phương tiện đi lại. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Movers wordlist (Transport)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-english-transport-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🚌 How do you get to school?",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["ENGLISH", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "MOVERS_VOCAB_TRANSPORT",
+          "description": "Gọi tên phương tiện đi lại và nói cách mình đi học bằng tiếng Anh"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_SPEAKING", "role": "SECONDARY" },
+        { "skill_id": "REASONING_PLANNING", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 6, "offline": 8 },
+      "materials": [],
+      "choices": [
+        { "id": "REAL", "label": "🚌 Con nói cách con đi học thật" },
+        { "id": "IMAGINE", "label": "✈️ Con tưởng tượng cách đi học trong mơ" }
+      ],
+      "quest_flow": {
+        "hook": "\"I go to school by bus.\" 🚌 Mình học tên phương tiện đi lại bằng tiếng Anh.",
+        "predict_prompt": "Con đoán 'xe đạp' trong tiếng Anh là gì?",
+        "plan_prompt": "Con định nói về cách đi học thật hay cách tưởng tượng trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói cả câu 'I go to school by ___' cho mình nghe?",
+        "revision_prompt": "Con thử nói thêm một phương tiện khác con biết được không?",
+        "reflection_prompt": "Phương tiện tiếng Anh nào con thấy khó phát âm nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang nói phương tiện đi lại bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Phương tiện đó có bánh xe không, hay bay trên trời?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn nói cách đi học thật hay cách tưởng tượng trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "PHOTO_ARTIFACT", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-english-vocabulary-v1",
+      "adaptations": {
+        "easier": ["provide_the_transport_word_first", "one_sentence_only"],
+        "harder": ["compare_two_ways_to_travel", "add_how_long_it_takes"],
+        "low_confidence": ["practice_with_parent_first"],
+        "low_stamina": ["one_sentence_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

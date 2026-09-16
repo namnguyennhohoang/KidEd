@@ -48,7 +48,7 @@ quần áo · đồ ăn quen thuộc.
 thời tiết & mùa · nghề nghiệp · nơi chốn trong thị trấn · phương tiện đi lại · sở thích/thể thao ·
 thì quá khứ đơn (regular) · so sánh hơn · "there is/are" · "can" chỉ khả năng.
 
-## 5. Unit đã triển khai (Slice 7i)
+## 5. Unit đã triển khai (Slice 7i + 7j)
 
 | Pack | Unit | Cấp | Skill PRIMARY | Cấu trúc/chủ đề Cambridge |
 |---|---|---|---|---|
@@ -57,7 +57,16 @@ thì quá khứ đơn (regular) · so sánh hơn · "there is/are" · "can" ch�
 | `vi-g1-english-listening-animals-numbers.pack.json` | 🐘 Listen & Point | Starters | `ENGLISH_LISTENING` | Nghe 1 lệnh đơn (point to / count) — animals + numbers 1–10 |
 | `vi-g3-english-weather-speaking.pack.json` | ☀️ What's the weather like? | Movers | `ENGLISH_SPEAKING` | Weather wordlist + thì hiện tại đơn "It's + adj" |
 | `vi-g3-english-past-simple-writing.pack.json` | ✍️ Yesterday I... | Movers | `ENGLISH_WRITING` | Quá khứ đơn động từ có quy tắc — điền vào chỗ trống |
-| `vi-g3-english-comparatives-speaking.pack.json` | 📏 Bigger or smaller? | Movers | `ENGLISH_SPEAKING` | So sánh hơn (comparative adjectives) qua mô tả tranh |
+| `vi-g3-english-comparatives-vocabulary.pack.json` | 📏 Bigger or smaller? | Movers | `ENGLISH_VOCABULARY` | So sánh hơn (comparative adjectives) qua mô tả tranh |
+| `vi-g1-english-family.pack.json` | 👪 My Family | Starters | `ENGLISH_VOCABULARY` | Family wordlist — gọi tên thành viên gia đình |
+| `vi-g1-english-body-parts.pack.json` | 🙆 Head, Shoulders, Knees & Toes | Starters | `ENGLISH_VOCABULARY` | Body parts wordlist — chỉ + gọi tên (kết hợp vận động) |
+| `vi-g1-english-clothes.pack.json` | 👕 What are you wearing? | Starters | `ENGLISH_VOCABULARY` | Clothes wordlist — "I am wearing..." |
+| `vi-g1-english-food.pack.json` | 🍎 Yummy or Yucky? | Starters | `ENGLISH_VOCABULARY` | Food wordlist + "I like / I don't like" |
+| `vi-g1-english-numbers-11-20.pack.json` | 🔢 Numbers 11–20 | Starters | `ENGLISH_LISTENING` | Đếm tiếp 11–20, nối tiếp unit Listen & Point (1–10) |
+| `vi-g3-english-there-is-are.pack.json` | 🏠 There is a cat in the garden | Movers | `ENGLISH_SPEAKING` | Cấu trúc "there is/there are" |
+| `vi-g3-english-can-ability.pack.json` | 🏊 I can swim | Movers | `ENGLISH_SPEAKING` | "can/can't" chỉ khả năng |
+| `vi-g3-english-jobs.pack.json` | 👨‍⚕️ What does a doctor do? | Movers | `ENGLISH_VOCABULARY` | Jobs wordlist + mô tả công việc |
+| `vi-g3-english-transport.pack.json` | 🚌 How do you get to school? | Movers | `ENGLISH_VOCABULARY` | Transport wordlist — "I go to school by..." |
 
 Đơn vị Starters dùng **MCQ** (`quest_flow.attempt_options`, ảnh + từ tiếng Anh, luôn kèm "Cách khác")
 vì trẻ 6–7 tuổi vừa mới làm quen mặt chữ tiếng Anh — chọn tranh/từ đúng phù hợp hơn gõ chữ. Đơn vị
@@ -66,8 +75,10 @@ diện.
 
 ## 6. Chưa làm (còn 🟡, để tránh ôm quá nhiều trong một lần)
 
-- Starters: chủ đề số đếm 11–20, gia đình, bộ phận cơ thể, quần áo, đồ ăn — chưa có unit.
-- Movers: "there is/are", "can" chỉ khả năng, nghề nghiệp, phương tiện đi lại — chưa có unit.
+- Starters: đã phủ colours, greetings, animals/numbers 1–10, family, body parts, clothes, food,
+  numbers 11–20 — còn thiếu vài chủ đề phụ (thời tiết/mùa ở mức Starters, đồ vật lớp học riêng biệt).
+- Movers: đã phủ weather, past simple, comparatives, there is/are, can, jobs, transport — còn thiếu
+  giới từ chỉ thời gian, thì tương lai gần "going to", câu mệnh lệnh (imperatives).
 - Flyers (A2) — ngoài phạm vi 2 stage hiện có, để dành khi mở TDN_READINESS/lớp lớn hơn.
 - Studio chưa có form riêng để soạn unit tiếng Anh (ảnh + audio) — hiện vẫn qua JSON thô, phần
   `content_ref` cho ảnh minh hoạ từ vựng cần được đội nội dung thật gán link ảnh đã duyệt bản quyền.

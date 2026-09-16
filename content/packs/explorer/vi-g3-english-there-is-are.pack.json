@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-english-there-is-are",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — tiếng Anh: There is/There are (Cambridge Movers)",
+  "description": "Gói mẫu EXPLORER, English track cấp Movers — cấu trúc there is/are. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Movers grammar (there is/there are)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-english-there-is-are-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🏠 There is a cat in the garden",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["ENGLISH", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "MOVERS_SPEAKING_THERE_IS_ARE",
+          "description": "Tả sự tồn tại của đồ vật/con vật ở một nơi bằng cấu trúc 'there is/there are'"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_SPEAKING", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 6, "offline": 8 },
+      "materials": [],
+      "choices": [
+        { "id": "ROOM", "label": "🛋️ Con tả đồ vật trong phòng" },
+        { "id": "GARDEN", "label": "🌳 Con tả đồ vật ngoài sân/vườn" }
+      ],
+      "quest_flow": {
+        "hook": "\"There is a cat in the garden. There are two birds in the tree.\" 🏠 Mình học tả có gì ở đâu bằng 'there is/are'.",
+        "predict_prompt": "Con đoán khi tả một đồ vật thì dùng 'there is' hay 'there are'?",
+        "plan_prompt": "Con định tả phòng nào hay góc nào trước?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói câu 'There is/are ___' để tả những gì con thấy?",
+        "revision_prompt": "Con thử tả thêm một đồ vật khác trong phòng được không?",
+        "reflection_prompt": "Con thấy lúc nào khó chọn giữa 'there is' và 'there are' nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang tả có cái gì ở một nơi bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Nếu chỉ có một đồ vật thì dùng 'is', nếu có nhiều hơn một thì dùng gì?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn tả đồ vật trong phòng trước hay ngoài vườn trước?" }
+      ],
+      "evidence": ["TEXT_RESPONSE", "VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-english-speaking-v1",
+      "adaptations": {
+        "easier": ["provide_the_verb_form_first", "describe_only_one_object"],
+        "harder": ["describe_five_objects", "use_negative_there_isnt_arent"],
+        "low_confidence": ["write_the_sentence_first_then_say_it"],
+        "low_stamina": ["one_sentence_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}
