@@ -1,0 +1,79 @@
+{
+  "id": "vi-g3-english-weather-speaking",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Explorer lớp 3 — tiếng Anh: Weather (Cambridge Movers)",
+  "description": "Gói mẫu EXPLORER, English track cấp Movers — hỏi đáp về thời tiết. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "EXPLORER",
+  "grades": [3],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Movers wordlist & structures (Weather, present simple 'It's + adj')", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g3-english-weather-speaking-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "☀️ What's the weather like?",
+      "locale": "vi-VN",
+      "stage": "EXPLORER",
+      "grades": [3],
+      "domains": ["ENGLISH", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "MOVERS_SPEAKING_WEATHER",
+          "description": "Hỏi và trả lời về thời tiết bằng cấu trúc 'What's the weather like? It's ___.'"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_SPEAKING", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 6, "offline": 8 },
+      "materials": ["nhìn ra cửa sổ hoặc xem thời tiết hôm nay cùng ba/mẹ"],
+      "choices": [
+        { "id": "TODAY", "label": "🌤️ Con tả thời tiết hôm nay" },
+        { "id": "FAVOURITE", "label": "❄️ Con tả thời tiết con thích nhất" }
+      ],
+      "quest_flow": {
+        "hook": "\"What's the weather like today?\" ☀️🌧️ Mình học hỏi và trả lời về thời tiết bằng tiếng Anh.",
+        "predict_prompt": "Con đoán câu trả lời cho thời tiết nắng là 'It's sunny' hay 'It's rainy'?",
+        "plan_prompt": "Con định tả thời tiết bằng mấy câu?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói cả câu hỏi và câu trả lời về thời tiết hôm nay cho mình nghe?",
+        "revision_prompt": "Con thử đổi sang tả một loại thời tiết khác được không?",
+        "reflection_prompt": "Từ tiếng Anh nào tả thời tiết con thấy khó phát âm nhất?"
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang tập hỏi-đáp một câu về thời tiết bằng tiếng Anh." },
+        { "level": 2, "type": "QUESTION", "content": "Thời tiết hôm nay có nắng không? Con còn nhớ tiếng Anh của 'nắng' không?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn tập câu hỏi trước hay câu trả lời trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "AUDIO_RECORDING", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g3-english-speaking-v1",
+      "adaptations": {
+        "easier": ["provide_the_answer_word_first", "practice_with_parent_asking_the_question"],
+        "harder": ["describe_three_days_of_weather", "add_a_reason_like_i_like_sunny_because"],
+        "low_confidence": ["write_the_sentence_first_then_say_it"],
+        "low_stamina": ["one_sentence_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

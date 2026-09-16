@@ -659,6 +659,49 @@ Toàn bộ vẫn không dùng MCQ (giữ quy tắc EXPLORER = ô gõ chữ). `lo
 20 file nội dung vẫn là *mẫu kiểm chứng kiến trúc* — chưa qua review chuyên môn sư phạm/tâm lý trẻ thật,
 và Content Studio vẫn chưa có UI riêng để soạn MCQ qua form (chỉ JSON thô).
 
+### Slice 7i — Chương trình tiếng Anh Starters→Movers (Cambridge YLE)  ✅ HOÀN THÀNH
+
+Người dùng yêu cầu vào vai chuyên gia giáo dục/tiếng Anh, xây chương trình tiếng Anh cho bé dựa trên
+khung Cambridge Young Learners English (Starters/Movers/Flyers) và tích hợp vào nội dung hiện có. Xem
+thiết kế đầy đủ ở **`docs/CONTENT_ENGLISH_CURRICULUM.md`** (ánh xạ stage↔cấp, bảng skill, chủ đề từ
+vựng theo cấp, roadmap phần chưa làm). Tóm tắt các thay đổi:
+
+**Skill Graph** (`content/skills/skills.json`) — không tạo skill riêng theo từng cấp Cambridge, đi theo
+đúng mẫu `MATH_NUMBER_SENSE` (một skill xuyên nhiều stage, phân biệt độ khó qua `descriptionByAge`):
+- Thêm mới `ENGLISH_VOCABULARY` và `ENGLISH_SPEAKING` (BASE_CAMP + EXPLORER) — trước đây tiếng Anh
+  không có skill nào áp dụng cho BASE_CAMP.
+- Mở rộng `ENGLISH_LISTENING` sang BASE_CAMP (trước chỉ EXPLORER+).
+- Mở rộng `ENGLISH_WRITING` sang EXPLORER (trước chỉ TDN_READINESS).
+- `ENGLISH_READING` **cố tình giữ nguyên EXPLORER+** — trẻ BASE_CAMP còn đang học đọc tiếng Việt, đọc
+  độc lập tiếng Anh chưa phù hợp; Starters cấp Cambridge cũng chỉ yêu cầu ghép tranh–từ, đúng việc
+  `ENGLISH_VOCABULARY` đảm nhiệm.
+
+**6 unit mới** (3 Starters/BASE_CAMP dùng MCQ, 3 Movers/EXPLORER dùng ô gõ/nói — giữ đúng quy tắc đã
+thống nhất từ Slice 7c):
+
+| Pack | Unit | Cấp | Skill PRIMARY |
+|---|---|---|---|
+| `vi-g1-english-colours-shapes.pack.json` | 🌈 Colours & Shapes | Starters | `ENGLISH_VOCABULARY` |
+| `vi-g1-english-greetings.pack.json` | 👋 Hello, my name is... | Starters | `ENGLISH_SPEAKING` |
+| `vi-g1-english-listening-animals-numbers.pack.json` | 🐘 Listen & Point | Starters | `ENGLISH_LISTENING` |
+| `vi-g3-english-weather-speaking.pack.json` | ☀️ What's the weather like? | Movers | `ENGLISH_SPEAKING` |
+| `vi-g3-english-past-simple-writing.pack.json` | ✍️ Yesterday I... | Movers | `ENGLISH_WRITING` |
+| `vi-g3-english-comparatives-vocabulary.pack.json` | 📏 Bigger or smaller? | Movers | `ENGLISH_VOCABULARY` |
+
+`learning_outcomes[].framework` dùng giá trị mới `"CAMBRIDGE_YLE"` (trường `framework` vốn là string tự
+do trong schema, không cần đổi `learning-unit.schema.json`). `loader.test.ts` cập nhật số đếm:
+`content_pack` 19→25, `learning_unit` 24→30, `learning_unit_skill` 72→90, `learning_unit_outcome`
+24→30.
+
+**Kết quả 7i:** `validate:content` → **26 file, 0 ERROR, 0 WARN**. `npm test` → **238 pass** + 2 skipped
+(1 lần chạy đầu bị flaky do hook DB harness timeout dưới tải — chạy lại sạch, không phải regression
+thật). typecheck + `eslint .` sạch. `npm run e2e` → **10/10**.
+**Còn 🟡:** đúng như `CONTENT_ENGLISH_CURRICULUM.md` §6 liệt kê — Starters còn thiếu chủ đề số 11–20/
+gia đình/bộ phận cơ thể/quần áo/đồ ăn; Movers còn thiếu "there is/are", "can", nghề nghiệp, phương tiện;
+Flyers (A2) ngoài phạm vi 2 stage hiện có; ảnh minh hoạ từ vựng mới chỉ là `content_ref` placeholder,
+chưa có link ảnh thật đã duyệt bản quyền; nội dung do AI soạn dựa theo khung công khai, **bắt buộc**
+qua giáo viên tiếng Anh có chuyên môn YLE duyệt trước khi dùng cho trẻ thật.
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.

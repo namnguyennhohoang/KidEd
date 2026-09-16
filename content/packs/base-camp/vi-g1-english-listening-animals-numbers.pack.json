@@ -1,0 +1,84 @@
+{
+  "id": "vi-g1-english-listening-animals-numbers",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Bé lớp 1 — tiếng Anh: Listen & Point (Cambridge Starters)",
+  "description": "Gói mẫu BASE_CAMP, English track cấp Starters — nghe lệnh đơn (1 hành động) chủ đề con vật & số đếm. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Starters wordlist (Animals, Numbers 1–10)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-english-listening-animals-numbers-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "🐘 Listen & Point",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["ENGLISH", "COMMUNICATION"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "STARTERS_LISTENING_ONE_STEP",
+          "description": "Nghe hiểu và phản ứng đúng với một câu lệnh tiếng Anh đơn giản (animals, numbers 1–10)"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_LISTENING", "role": "PRIMARY" },
+        { "skill_id": "ENGLISH_VOCABULARY", "role": "SECONDARY" },
+        { "skill_id": "TASK_INITIATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 6 },
+      "materials": ["ba/mẹ đọc to câu lệnh tiếng Anh, không cần thiết bị"],
+      "choices": [
+        { "id": "ANIMALS", "label": "🐘 Con nghe lệnh về con vật" },
+        { "id": "NUMBERS", "label": "🔢 Con nghe lệnh về số đếm" }
+      ],
+      "quest_flow": {
+        "hook": "\"Point to the elephant! Count to five!\" 🐘 Ba/mẹ đọc, con nghe và làm theo nhé.",
+        "predict_prompt": "Con đoán 'elephant' là con vật gì?",
+        "plan_prompt": "Con định nghe hết câu rồi mới làm, hay làm ngay khi nghe từ đầu tiên?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Câu lệnh nào con nghe hiểu ngay từ lần đầu?",
+        "revision_prompt": "Con thử nghe lại một câu lệnh khó rồi làm lại xem có đúng hơn không?",
+        "reflection_prompt": "Từ tiếng Anh nào trong các câu lệnh con thấy mới?",
+        "attempt_options": [
+          { "id": "animals_easy", "label": "🐘 Con làm đúng lệnh về con vật" },
+          { "id": "numbers_easy", "label": "🔢 Con làm đúng lệnh về số đếm" },
+          { "id": "both", "label": "🐘🔢 Con làm đúng cả hai loại lệnh" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình đang nghe một câu tiếng Anh ngắn rồi làm đúng theo lệnh đó." },
+        { "level": 2, "type": "QUESTION", "content": "Từ đầu tiên trong câu thường là một hành động — con thử đoán nghĩa từ giọng điệu?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn ba/mẹ đọc chậm lại, hay làm mẫu trước một lần?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-english-listening-v1",
+      "adaptations": {
+        "easier": ["parent_demonstrates_first", "reduce_to_three_commands"],
+        "harder": ["combine_animal_and_number_in_one_command", "add_new_animals_each_round"],
+        "low_confidence": ["practice_with_parent_doing_it_together"],
+        "low_stamina": ["three_commands_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

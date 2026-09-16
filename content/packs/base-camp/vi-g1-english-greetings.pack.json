@@ -1,0 +1,84 @@
+{
+  "id": "vi-g1-english-greetings",
+  "kind": "CONTENT_PACK",
+  "schema_version": "1.0.0",
+  "content_version": "1.0.0",
+  "status": "DRAFT",
+  "title": "Bé lớp 1 — tiếng Anh: Greetings & Self-intro (Cambridge Starters)",
+  "description": "Gói mẫu BASE_CAMP, English track cấp Starters — chào hỏi và tự giới thiệu. Chỉ để kiểm chứng kiến trúc, không phải chương trình đầy đủ. Xem docs/CONTENT_ENGLISH_CURRICULUM.md.",
+  "locale": "vi-VN",
+  "stage": "BASE_CAMP",
+  "grades": [1],
+  "provenance": {
+    "author": "Đội ngũ Hành trình Tự làm được",
+    "reviewer": "",
+    "source_refs": [{ "label": "Cambridge Young Learners English — Starters can-do (greetings, self-introduction)", "checked_date": "2026-09-16" }],
+    "license": "ORIGINAL_OR_LICENSED"
+  },
+  "units": [
+    {
+      "id": "vi-g1-english-greetings-001",
+      "schema_version": "1.0.0",
+      "content_version": "1.0.0",
+      "status": "DRAFT",
+      "title": "👋 Hello, my name is...",
+      "locale": "vi-VN",
+      "stage": "BASE_CAMP",
+      "grades": [1],
+      "domains": ["ENGLISH", "SOCIAL_EMOTIONAL"],
+      "learning_outcomes": [
+        {
+          "framework": "CAMBRIDGE_YLE",
+          "code": "STARTERS_SPEAKING_GREETINGS",
+          "description": "Chào hỏi và tự giới thiệu tên bằng tiếng Anh"
+        }
+      ],
+      "skills": [
+        { "skill_id": "ENGLISH_SPEAKING", "role": "PRIMARY" },
+        { "skill_id": "SOCIAL_CONFIDENCE", "role": "SECONDARY" },
+        { "skill_id": "ORAL_EXPLANATION", "role": "SECONDARY" }
+      ],
+      "prerequisites": [],
+      "duration_minutes": { "screen": 4, "offline": 6 },
+      "materials": ["gương hoặc thú bông (tuỳ chọn)"],
+      "choices": [
+        { "id": "MIRROR", "label": "🪞 Con tập trước gương" },
+        { "id": "PLUSH", "label": "🧸 Con tập với thú bông" }
+      ],
+      "quest_flow": {
+        "hook": "\"Hello! My name is...\" 👋 Mình tập chào hỏi và tự giới thiệu bằng tiếng Anh nhé.",
+        "predict_prompt": "Con đoán xem 'Hello' và 'Xin chào' có nghĩa giống nhau không?",
+        "plan_prompt": "Con định nói câu nào trước: 'Hello' hay 'My name is...'?",
+        "attempt_requirement": { "minimum_attempts_before_solution": 1 },
+        "explain_prompt": "Con nói lại cả câu 'Hello, my name is ___' cho mình nghe được không?",
+        "revision_prompt": "Con thử thêm 'I am ... years old' vào sau được không?",
+        "reflection_prompt": "Nói tiếng Anh lần này con thấy dễ hay khó hơn lần trước?",
+        "attempt_options": [
+          { "id": "hello_only", "label": "👋 Con nói 'Hello!'" },
+          { "id": "name_only", "label": "🙋 Con nói 'My name is ___'" },
+          { "id": "both", "label": "👋🙋 Con nói cả 'Hello, my name is ___'" }
+        ]
+      },
+      "hints": [
+        { "level": 1, "type": "REPHRASE", "content": "Mình chỉ cần nói một câu chào đơn giản bằng tiếng Anh thôi." },
+        { "level": 2, "type": "QUESTION", "content": "'Hello' trong tiếng Việt nghĩa là gì nhỉ?" },
+        { "level": 3, "type": "STRATEGY_CHOICE", "content": "Con muốn tập nói trước gương hay nói với thú bông trước?" }
+      ],
+      "evidence": ["VOICE_EXPLANATION", "AUDIO_RECORDING", "PARENT_OBSERVATION", "CHILD_REFLECTION"],
+      "rubric_id": "g1-english-speaking-v1",
+      "adaptations": {
+        "easier": ["say_hello_only_first_time", "practice_with_parent_saying_it_together"],
+        "harder": ["add_i_am_years_old", "introduce_to_a_family_member_live"],
+        "low_confidence": ["mirror_first_then_plush"],
+        "low_stamina": ["one_sentence_now_rest_later"]
+      },
+      "safety": { "adult_required": false, "risk_level": "LOW" },
+      "provenance": {
+        "author": "Đội ngũ Hành trình Tự làm được",
+        "reviewer": "",
+        "source_refs": [],
+        "license": "ORIGINAL_OR_LICENSED"
+      }
+    }
+  ]
+}

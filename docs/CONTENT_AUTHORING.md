@@ -43,6 +43,10 @@ Trình validate: `packages/content-schema` (JSON Schema 2020-12 + luật ngữ n
   chia 10 thành hai nhóm không cần liệt kê đủ 1–9, 2–8, ...). Bỏ trống -> vẫn dùng ô gõ chữ như cũ.
 - `hints[]` sắp theo `level` tăng dần; mỗi hint có `type` ∈ {REPHRASE, QUESTION, VISUAL, STRATEGY_CHOICE, WORKED_EXAMPLE}.
 - `evidence[]` ⊆ enum; `provenance.license` ∈ {ORIGINAL_OR_LICENSED, PUBLIC_DOMAIN, CC_BY, CC_BY_SA, LICENSED_THIRD_PARTY}.
+- Nội dung tiếng Anh (`domains` có `ENGLISH`) đi theo khung Cambridge Young Learners English
+  (Starters/Movers/Flyers) — xem `CONTENT_ENGLISH_CURRICULUM.md` để biết ánh xạ stage↔cấp, skill
+  (`ENGLISH_VOCABULARY`, `ENGLISH_LISTENING`, `ENGLISH_SPEAKING`, `ENGLISH_READING`, `ENGLISH_WRITING`)
+  và chủ đề từ vựng/ngữ pháp theo từng cấp trước khi soạn unit mới.
 
 **Semantic-level** (luật, không chỉ schema):
 | Luật | Mô tả |
