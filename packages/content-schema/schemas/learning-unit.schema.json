@@ -105,6 +105,11 @@
       "required": ["hook", "plan_prompt", "attempt_requirement", "explain_prompt", "reflection_prompt"],
       "properties": {
         "hook": { "type": "string", "minLength": 1 },
+        "hook_visual": {
+          "description": "Tuỳ chọn: id minh hoạ SVG hiển thị cạnh hook (đăng ký trong apps/web/components/illustrations.tsx). Dùng cho khái niệm trừu tượng cần hình trực quan (VD: so sánh to/nhỏ, sơ đồ bóng đổ). Không khớp id nào -> web bỏ qua, không lỗi.",
+          "type": "string",
+          "minLength": 1
+        },
         "predict_prompt": { "type": "string" },
         "plan_prompt": { "type": "string", "minLength": 1 },
         "attempt_requirement": {
@@ -128,7 +133,24 @@
             "required": ["id", "label"],
             "properties": {
               "id": { "type": "string", "minLength": 1 },
-              "label": { "type": "string", "minLength": 1 }
+              "label": { "type": "string", "minLength": 1 },
+              "visual": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        "match_pairs": {
+          "description": "Tuỳ chọn: trò chơi kéo-thả ghép từ với hình cho bước 'thử làm' — thay MCQ/ô gõ chữ. Mỗi mục là một cặp {id, label, visual} — bé kéo thẻ chữ (label) thả vào đúng hình (visual, id minh hoạ đăng ký trong apps/web/components/illustrations.tsx). Web vẫn kèm 'Cách khác' để mở ô gõ chữ. Bỏ trống -> không có bước ghép hình.",
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 6,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "label", "visual"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "label": { "type": "string", "minLength": 1 },
+              "visual": { "type": "string", "minLength": 1 }
             }
           }
         },

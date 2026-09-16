@@ -53,11 +53,11 @@
         "explain_prompt": "Con chỉ vào ảnh/tranh và nói 'This is my ___' cho từng người?",
         "revision_prompt": "Con thử giới thiệu thêm một người nữa trong nhà được không?",
         "reflection_prompt": "Từ gọi người thân nào bằng tiếng Anh con thấy khó nhớ nhất?",
-        "attempt_options": [
-          { "id": "mother", "label": "👩 mother — con giới thiệu mẹ" },
-          { "id": "father", "label": "👨 father — con giới thiệu bố" },
-          { "id": "sibling", "label": "🧒 sister/brother — con giới thiệu anh/chị/em" },
-          { "id": "grandparent", "label": "👵 grandmother/grandfather — con giới thiệu ông/bà" }
+        "match_pairs": [
+          { "id": "mother", "label": "mother", "visual": "mother" },
+          { "id": "father", "label": "father", "visual": "father" },
+          { "id": "sibling", "label": "sister / brother", "visual": "sibling" },
+          { "id": "grandparent", "label": "grandmother / grandfather", "visual": "grandparent" }
         ]
       },
       "hints": [

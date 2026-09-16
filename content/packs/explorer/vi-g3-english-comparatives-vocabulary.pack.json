@@ -46,6 +46,7 @@
         { "id": "HEIGHT", "label": "📐 Con so sánh chiều cao (tall/short)" }
       ],
       "quest_flow": {
+        "hook_visual": "size-compare",
         "hook": "\"This ball is bigger than that ball.\" 📏 Mình học thêm '-er' vào tính từ để so sánh hai đồ vật.",
         "predict_prompt": "Con đoán 'big' thêm '-er' sẽ đọc là gì?",
         "plan_prompt": "Con định so sánh hai đồ vật nào trước?",

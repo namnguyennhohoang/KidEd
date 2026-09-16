@@ -737,6 +737,53 @@ typecheck + `eslint .` sạch. `npm run e2e` → **10/10**.
 dung **bắt buộc** qua giáo viên tiếng Anh chuyên môn YLE duyệt trước khi dùng cho trẻ thật — chưa có gì
 thay đổi về việc này.
 
+### Slice 7k — Minh hoạ SVG + trò chơi kéo-thả ghép từ với hình  ✅ HOÀN THÀNH
+
+Người dùng yêu cầu: (1) dùng hình vẽ thay emoji, (2) hình minh hoạ/sơ đồ cho khái niệm trừu tượng
+(không phải mô hình 3D thật — đã thống nhất qua AskUserQuestion vì không có công cụ tạo ảnh thật/3D),
+(3) tăng tính tương tác — ưu tiên trò chơi kéo-thả ghép từ. Không đổi phạm vi nội dung (English roadmap
+coi như đã đủ ở 7i/7j) — đây là lớp hạ tầng trình bày/tương tác mới, áp dụng thử lên vài unit làm mẫu.
+
+**Schema** (`learning-unit.schema.json`, tương thích ngược hoàn toàn — mọi field mới đều tuỳ chọn):
+- `quest_flow.attempt_options[].visual?` — id minh hoạ hiện cạnh nhãn MCQ.
+- `quest_flow.match_pairs?` (2–6 mục `{id, label, visual}`) — bước "thử làm" dạng trò chơi kéo-thả.
+- `quest_flow.hook_visual?` — id minh hoạ hiện cạnh hook, dùng cho khái niệm trừu tượng.
+
+**Web (`apps/web`):**
+- `components/illustrations.tsx` — thư viện ~25 icon SVG tự vẽ (màu sắc, con vật, gia đình, quần áo,
+  đồ ăn, thời tiết, sơ đồ so sánh to/nhỏ, sơ đồ bóng đổ...), đăng ký qua `ILLUSTRATION_IDS`. Id không
+  khớp -> bỏ qua, không lỗi (an toàn khi content tham chiếu icon chưa vẽ).
+- `components/match-game.tsx` — trò chơi kéo-thả bằng Pointer Events thuần (không thêm thư viện ngoài,
+  chạy được cả chuột/chạm/bút); có lối tắt bấm-chọn-rồi-bấm-hình cho bé khó giữ kéo. Đúng thì khoá ✅,
+  sai thì rung nhẹ và cho thử lại.
+- `app/learn/page.tsx`: `match_pairs` ưu tiên hơn `attempt_options` ở bước "thử làm" khi cả hai đều có;
+  `hook_visual` hiện ở bước "chọn"; MCQ hiện icon nếu `attempt_options[].visual` có; "Cách khác" vẫn
+  luôn có cho cả hai kiểu.
+
+**Áp dụng thử lên 5 unit có sẵn** (content-only, không cần migration):
+- `vi-g1-english-colours-shapes` (màu ↔ hình) và `vi-g1-english-family` (người thân ↔ hình): chuyển từ
+  `attempt_options` sang `match_pairs`.
+- `vi-g1-reading-animal-word-match-001` (Đọc đúng tên con vật): chuyển 3 thẻ MCQ trong 1 tranh thành
+  trò chơi ghép 3 từ với 3 tranh con vật — đúng bản chất "ghép từ-hình" hơn hẳn MCQ cũ.
+- `vi-g3-english-comparatives-vocabulary` (Bigger or smaller?) và `vi-g1-observe-shadows` (Đi tìm
+  bóng): thêm `hook_visual` (sơ đồ so sánh to/nhỏ, sơ đồ bóng đổ) — ví dụ minh hoạ khái niệm trừu tượng.
+
+**E2E:** thêm test mới cho `match_pairs` (kéo-thả bằng `locator.dragTo()`, xác nhận khoá đúng + tính là
+1 lần thử). Phát hiện và xử lý gotcha: `sw.js` (service worker) tự `fetch()` cho `/api/content/*` theo
+kiểu stale-while-revalidate — fetch đó **không** đi qua `page.route()` của Playwright vì chạy trong
+luồng service worker, không phải luồng trang. Test mock nội dung phải tắt đăng ký service worker qua
+`page.addInitScript` trước khi điều hướng (không ảnh hưởng các test khác, chỉ áp dụng cho test này).
+
+**Kết quả 7k:** `validate:content` → **35 file, 0 ERROR, 0 WARN** (không đổi số file, chỉ sửa field).
+`npm test` → **238 pass** + 2 skipped (không đổi). typecheck + `eslint .` sạch. `build:web` OK.
+`npm run e2e` → **11/11** (+1 test mới).
+**Còn 🟡:** minh hoạ vẫn là SVG tự vẽ, không phải ảnh/3D thật (đã thống nhất với người dùng — nâng cấp
+sau khi có ảnh/minh hoạ thật đã duyệt bản quyền, chỉ cần sửa `illustrations.tsx` không cần đổi schema);
+mới áp dụng `match_pairs`/`hook_visual` cho 5/35 file — các unit còn lại vẫn dùng `attempt_options`/ô
+gõ chữ như cũ (tương thích ngược, không unit nào bị hỏng); chưa có UI Content Studio để chọn icon minh
+hoạ qua form (soạn `visual`/`match_pairs` vẫn qua JSON thô, phải tra `ILLUSTRATION_IDS` thủ công); chưa
+có huy hiệu/streak (nhánh tương tác thứ hai người dùng chọn — để dành, đây mới là kéo-thả).
+
 ## Ngoài phạm vi Giai đoạn 0–1 (ghi để không quên)
 
 Content Studio đầy đủ (GĐ2) · Socratic AI Coach production (GĐ2) · Explorer/TDN Readiness (GĐ3) · Admissions Rule Tracker UI (GĐ3) · Specialisation (GĐ4) · Global Scholar (GĐ5) · multi-family scaling · teacher/mentor workspace đầy đủ.

@@ -16,6 +16,8 @@ import {
 } from '@/lib/learn-store';
 import { flushArtifacts, queueArtifact } from '@/lib/artifact-store';
 import { Button } from '@/components/ui';
+import { Illustration } from '@/components/illustrations';
+import { MatchGame } from '@/components/match-game';
 
 type Phase = 'loading' | 'choose' | 'plan' | 'try' | 'make' | 'reflect' | 'done';
 
@@ -256,6 +258,7 @@ export default function LearnPage() {
 
   const minAttempts = unit.questFlow.attempt_requirement?.minimum_attempts_before_solution ?? 1;
   const attemptOptions = unit.questFlow.attempt_options ?? [];
+  const matchPairs = unit.questFlow.match_pairs ?? [];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 via-white to-amber-50">
@@ -291,6 +294,11 @@ export default function LearnPage() {
 
         {phase === 'choose' && (
           <section className="flex flex-col gap-5">
+            {unit.questFlow.hook_visual && (
+              <div className="mx-auto h-28 w-28 sm:h-36 sm:w-36">
+                <Illustration id={unit.questFlow.hook_visual} label={unit.title} />
+              </div>
+            )}
             {unit.questFlow.hook && <Companion>{unit.questFlow.hook}</Companion>}
             <p className="text-center text-xl font-medium">Con muốn bắt đầu thế nào?</p>
             {unit.choices.map((c) => (
@@ -341,7 +349,20 @@ export default function LearnPage() {
               <p className="text-xl font-medium">Con thử làm và kể lại cách làm nhé</p>
             </Companion>
 
-            {attemptOptions.length > 0 && !showOtherInput ? (
+            {matchPairs.length > 0 && !showOtherInput ? (
+              <div className="flex flex-col gap-3">
+                <MatchGame
+                  key={unit.id}
+                  pairs={matchPairs}
+                  onComplete={({ matchedOnFirstTry }) =>
+                    void submitAttempt({ mode: 'match', matchedOnFirstTry, total: matchPairs.length })
+                  }
+                />
+                <Button type="button" variant="ghost" data-testid="attempt-other" onClick={() => setShowOtherInput(true)}>
+                  🔀 Cách khác, để con tự nói
+                </Button>
+              </div>
+            ) : attemptOptions.length > 0 && !showOtherInput ? (
               <div className="flex flex-col gap-3">
                 {attemptOptions.map((o) => (
                   <Button
@@ -353,6 +374,11 @@ export default function LearnPage() {
                       void submitAttempt({ optionId: o.id, text: o.label });
                     }}
                   >
+                    {o.visual && (
+                      <span className="h-8 w-8 shrink-0">
+                        <Illustration id={o.visual} label={o.label} />
+                      </span>
+                    )}
                     {lastPickedOptionId === o.id ? `✅ ${o.label}` : o.label}
                   </Button>
                 ))}
@@ -376,7 +402,7 @@ export default function LearnPage() {
             )}
 
             <div className="flex flex-col gap-3 sm:flex-row">
-              {(attemptOptions.length === 0 || showOtherInput) && (
+              {(matchPairs.length === 0 && attemptOptions.length === 0) || showOtherInput ? (
                 <Button
                   variant="success"
                   data-testid="attempt-submit"
@@ -385,7 +411,7 @@ export default function LearnPage() {
                 >
                   ✅ Con làm xong bước này
                 </Button>
-              )}
+              ) : null}
               <Button variant="warm" data-testid="hint-btn" disabled={hintCoolingDown} onClick={askHint}>
                 {hintCoolingDown ? '⏳ Con thử theo gợi ý nhé…' : '💡 Con cần gợi ý'}
               </Button>

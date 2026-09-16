@@ -94,8 +94,12 @@ export interface LearningUnit {
     explain_prompt?: string;
     reflection_prompt?: string;
     attempt_requirement?: { minimum_attempts_before_solution?: number };
+    /** id minh hoạ (xem components/illustrations.tsx) hiển thị cạnh hook — dùng cho khái niệm trừu tượng. */
+    hook_visual?: string;
     /** Đáp án trắc nghiệm cho bước "thử làm" (tuỳ chọn) — bấm chọn thay vì gõ chữ. */
-    attempt_options?: Array<{ id: string; label: string }>;
+    attempt_options?: Array<{ id: string; label: string; visual?: string }>;
+    /** Trò chơi kéo-thả ghép từ với hình (tuỳ chọn) — thay MCQ/ô gõ chữ ở bước "thử làm". */
+    match_pairs?: Array<{ id: string; label: string; visual: string }>;
     [k: string]: unknown;
   };
 }

@@ -46,6 +46,7 @@
         { "id": "HAND", "label": "✋ Con soi bóng bàn tay con" }
       ],
       "quest_flow": {
+        "hook_visual": "shadow-diagram",
         "hook": "Khi con để đồ vật trước đèn 🔦, phía sau xuất hiện một cái bóng 🌑.",
         "predict_prompt": "Con đoán xem nếu đưa đèn lại gần thì bóng sẽ to hơn hay nhỏ hơn?",
         "plan_prompt": "Con định thử mấy vị trí đèn, và bắt đầu từ đâu?",

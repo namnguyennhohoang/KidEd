@@ -37,10 +37,24 @@ Trình validate: `packages/content-schema` (JSON Schema 2020-12 + luật ngữ n
 - `domains` ⊆ enum; `skills[].role` ∈ {PRIMARY, SECONDARY}; ≥ 1 PRIMARY.
 - `duration_minutes.screen` và `duration_minutes.offline` đều ≥ 0; **offline > 0**.
 - `quest_flow.attempt_requirement.minimum_attempts_before_solution` ≥ 1.
-- `quest_flow.attempt_options` (tuỳ chọn, 2–6 mục `{id, label}`): khi có, web hiện bước "thử làm" dưới
-  dạng trắc nghiệm (bấm chọn) thay vì ô gõ chữ — phù hợp trẻ chưa viết thạo (BASE_CAMP). Web luôn tự
-  thêm nút "Cách khác" mở lại ô gõ, nên KHÔNG cần liệt kê hết mọi đáp án đúng có thể có (ví dụ bài
-  chia 10 thành hai nhóm không cần liệt kê đủ 1–9, 2–8, ...). Bỏ trống -> vẫn dùng ô gõ chữ như cũ.
+- `quest_flow.attempt_options` (tuỳ chọn, 2–6 mục `{id, label, visual?}`): khi có, web hiện bước "thử
+  làm" dưới dạng trắc nghiệm (bấm chọn) thay vì ô gõ chữ — phù hợp trẻ chưa viết thạo (BASE_CAMP). Web
+  luôn tự thêm nút "Cách khác" mở lại ô gõ, nên KHÔNG cần liệt kê hết mọi đáp án đúng có thể có (ví dụ
+  bài chia 10 thành hai nhóm không cần liệt kê đủ 1–9, 2–8, ...). Bỏ trống -> vẫn dùng ô gõ chữ như cũ.
+  `visual` (tuỳ chọn) là id minh hoạ hiện cạnh nhãn — xem bên dưới.
+- `quest_flow.match_pairs` (tuỳ chọn, 2–6 mục `{id, label, visual}` — `visual` bắt buộc ở đây): thay
+  MCQ/ô gõ chữ bằng trò chơi **kéo-thả ghép từ với hình** (`components/match-game.tsx`) — bé kéo thẻ
+  chữ thả vào đúng hình, hoặc bấm chọn rồi bấm hình nếu khó kéo giữ. Đúng thì khoá lại + hiện ✅, sai
+  thì rung nhẹ và cho thử lại. Hợp với từ vựng có hình rõ ràng (màu sắc, con vật, người thân...) — dùng
+  `attempt_options` (không có hình gắn liền) khi câu trả lời không phải một khái niệm có thể vẽ minh
+  hoạ trực tiếp. Vẫn kèm "Cách khác" mở ô gõ chữ.
+- `quest_flow.hook_visual` (tuỳ chọn, id minh hoạ hiện cạnh hook ở bước "chọn"): dùng cho khái niệm
+  trừu tượng cần hình trực quan hỗ trợ tưởng tượng (VD: sơ đồ bóng đổ theo vị trí đèn, so sánh to/nhỏ).
+- **Minh hoạ (`visual`/`hook_visual`)**: id phải khớp một icon đã đăng ký trong
+  `apps/web/components/illustrations.tsx` (`ILLUSTRATION_IDS` liệt kê id hợp lệ). Đây là SVG tự vẽ,
+  không phải ảnh chụp thật — dùng tạm cho tới khi có ảnh/minh hoạ thật đã duyệt bản quyền qua cùng cơ
+  chế (chỉ cần thay nội dung icon trong file đó, không đổi content hay schema). Id không khớp -> web
+  bỏ qua, không lỗi. Thêm icon mới: viết hàm vẽ SVG rồi đăng ký key vào `illustrations.tsx`.
 - `hints[]` sắp theo `level` tăng dần; mỗi hint có `type` ∈ {REPHRASE, QUESTION, VISUAL, STRATEGY_CHOICE, WORKED_EXAMPLE}.
 - `evidence[]` ⊆ enum; `provenance.license` ∈ {ORIGINAL_OR_LICENSED, PUBLIC_DOMAIN, CC_BY, CC_BY_SA, LICENSED_THIRD_PARTY}.
 - Nội dung tiếng Anh (`domains` có `ENGLISH`) đi theo khung Cambridge Young Learners English

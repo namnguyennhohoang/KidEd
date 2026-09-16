@@ -46,17 +46,17 @@
         { "id": "READ_SILENT", "label": "🤫 Con đọc thầm trong đầu trước" }
       ],
       "quest_flow": {
-        "hook": "Bức tranh có một chú mèo 🐱, và ba thẻ chữ. Chỉ một thẻ đọc đúng tên con vật trong tranh.",
-        "predict_prompt": "Con đoán xem thẻ chữ nào đọc đúng tên con vật trong tranh?",
-        "plan_prompt": "Con định đọc từng chữ một hay nhìn lướt cả ba thẻ trước?",
+        "hook": "Có ba bức tranh con vật 🐱🐶🐔 và ba thẻ chữ. Con kéo mỗi thẻ chữ thả đúng vào bức tranh của nó nhé.",
+        "predict_prompt": "Con đoán xem thẻ chữ nào khớp với bức tranh nào?",
+        "plan_prompt": "Con định đọc từng thẻ một hay nhìn lướt cả ba thẻ trước?",
         "attempt_requirement": { "minimum_attempts_before_solution": 1 },
-        "explain_prompt": "Vì sao con chọn thẻ đó? Con đọc lại cho mình nghe nhé.",
+        "explain_prompt": "Vì sao con ghép thẻ đó với bức tranh đó? Con đọc lại cho mình nghe nhé.",
         "revision_prompt": "Con đọc lại từng âm trong từ đó xem có đúng không?",
         "reflection_prompt": "Đọc chữ hôm nay con thấy dễ hay khó?",
-        "attempt_options": [
-          { "id": "cat", "label": "🐱 con mèo" },
-          { "id": "dog", "label": "🐶 con chó" },
-          { "id": "chicken", "label": "🐔 con gà" }
+        "match_pairs": [
+          { "id": "cat", "label": "con mèo", "visual": "cat" },
+          { "id": "dog", "label": "con chó", "visual": "dog" },
+          { "id": "chicken", "label": "con gà", "visual": "chicken" }
         ]
       },
       "hints": [

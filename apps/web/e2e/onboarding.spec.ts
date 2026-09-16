@@ -20,6 +20,70 @@ test('bước "thử làm" — MCQ mặc định; "Cách khác" vẫn mở đư�
   await expect(page.getByText('Số lần con đã thử: 1')).toBeVisible();
 });
 
+test('bước "thử làm" — trò chơi kéo-thả ghép từ với hình (match_pairs)', async ({ page }) => {
+  const mockUnit = {
+    id: 'mock-match-unit-001',
+    title: '🎯 Ghép từ với hình (test)',
+    stage: 'BASE_CAMP',
+    choices: [
+      { id: 'A', label: 'Cách A' },
+      { id: 'B', label: 'Cách B' },
+    ],
+    hints: [{ level: 1, type: 'REPHRASE', content: 'Gợi ý' }],
+    questFlow: {
+      hook: 'Ghép từ với hình nhé',
+      plan_prompt: 'Con định làm gì trước?',
+      attempt_requirement: { minimum_attempts_before_solution: 1 },
+      explain_prompt: 'Con giải thích cách ghép?',
+      reflection_prompt: 'Con thấy sao?',
+      match_pairs: [
+        { id: 'cat', label: 'cat', visual: 'cat' },
+        { id: 'dog', label: 'dog', visual: 'dog' },
+        { id: 'chicken', label: 'chicken', visual: 'chicken' },
+      ],
+    },
+  };
+  // sw.js dùng stale-while-revalidate cho /api/content/* bằng fetch() riêng trong service worker —
+  // fetch đó KHÔNG đi qua page.route() của Playwright. Tắt đăng ký service worker cho riêng test này
+  // để mock áp dụng được (ADR 0005 mô tả sw.js; xem components/sw-register.tsx).
+  await page.addInitScript(() => {
+    Object.defineProperty(window.navigator, 'serviceWorker', {
+      value: { register: () => Promise.reject(new Error('disabled for e2e')) },
+      configurable: true,
+    });
+  });
+
+  await page.route(/\/api\/content\/packs(\?|\/|$)/, async (route) => {
+    const url = route.request().url();
+    if (url.includes('/content/packs/mock-pack')) {
+      await route.fulfill({ json: { pack: { id: 'mock-pack', stage: 'BASE_CAMP' }, units: [mockUnit] } });
+    } else {
+      await route.fulfill({ json: { packs: [{ id: 'mock-pack', stage: 'BASE_CAMP' }] } });
+    }
+  });
+
+  await onboardAndStart(page);
+  await expect(page.locator('h1')).toContainText('Ghép từ với hình');
+  await page.locator('[data-testid^="choice-"]').first().click();
+  await page.getByTestId('plan-next').click();
+
+  // 3 hình mục tiêu + 3 thẻ chữ kéo-thả, chưa ghép hình nào.
+  const chips = page.locator('[data-testid^="match-chip-"]');
+  await expect(chips).toHaveCount(3);
+  await expect(page.getByText('cat', { exact: true }).first()).toBeVisible();
+
+  // Kéo từng thẻ chữ thả đúng vào ô hình tương ứng (data-match-target).
+  for (const id of ['cat', 'dog', 'chicken']) {
+    await page.getByTestId(`match-chip-${id}`).dragTo(page.locator(`[data-match-target="${id}"]`));
+  }
+  await expect(page.locator('[data-match-target="cat"]')).toContainText('✅ cat');
+  await expect(chips).toHaveCount(0);
+
+  // Ghép xong toàn bộ tự tính là một lần thử -> đủ điều kiện đi tiếp.
+  await expect(page.getByText('Số lần con đã thử: 1')).toBeVisible();
+  await page.getByTestId('to-make').click();
+});
+
 test('onboarding → chu trình học đầy đủ → dashboard', async ({ page }) => {
   await onboardAndStart(page);
   await runLoop(page);

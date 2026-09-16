@@ -53,11 +53,11 @@
         "explain_prompt": "Con chỉ một đồ vật trong nhà và nói tên màu bằng tiếng Anh cho mình nghe?",
         "revision_prompt": "Con thử tìm thêm một đồ vật màu khác rồi nói tên màu đó bằng tiếng Anh?",
         "reflection_prompt": "Từ màu tiếng Anh nào con thấy dễ nhớ nhất?",
-        "attempt_options": [
-          { "id": "red", "label": "🔴 red — con tìm được đồ vật màu đỏ" },
-          { "id": "yellow", "label": "🟡 yellow — con tìm được đồ vật màu vàng" },
-          { "id": "blue", "label": "🔵 blue — con tìm được đồ vật màu xanh dương" },
-          { "id": "green", "label": "🟢 green — con tìm được đồ vật màu xanh lá" }
+        "match_pairs": [
+          { "id": "red", "label": "red", "visual": "colour-red" },
+          { "id": "yellow", "label": "yellow", "visual": "colour-yellow" },
+          { "id": "blue", "label": "blue", "visual": "colour-blue" },
+          { "id": "green", "label": "green", "visual": "colour-green" }
         ]
       },
       "hints": [
